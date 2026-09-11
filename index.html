@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HW Community - HW Tutorials">
+<title>HW Community | HW Tutorials</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#020303;
+  color:#eaffea;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:linear-gradient(rgba(0,255,80,.025) 50%,transparent 50%);
+  background-size:100% 4px;
+  opacity:.35;
+}
+a{text-decoration:none;color:inherit}
+
+#loader{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(0,255,70,.13),transparent 28%),
+    #010201;
+}
+.matrix{
+  position:absolute;inset:0;opacity:.18;
+  background-image:
+    linear-gradient(rgba(0,255,70,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,255,70,.08) 1px,transparent 1px);
+  background-size:30px 30px;
+  transform:perspective(500px) rotateX(55deg) scale(1.5);
+  transform-origin:center bottom;
+  animation:gridmove 8s linear infinite;
+}
+@keyframes gridmove{to{background-position:0 600px,0 0}}
+
+.loader-box{
+  width:min(92%,560px);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.terminal{
+  text-align:left;
+  font:14px/1.7 "Share Tech Mono",monospace;
+  color:#39ff72;
+  margin-bottom:22px;
+  text-shadow:0 0 8px rgba(0,255,80,.65);
+}
+.logo{
+  width:180px;height:180px;object-fit:contain;
+  border-radius:50%;
+  filter:drop-shadow(0 0 8px #00ff55) drop-shadow(0 0 24px rgba(0,255,70,.7));
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  50%{filter:drop-shadow(0 0 16px #00ff55) drop-shadow(0 0 42px rgba(0,255,70,.9))}
+}
+h1{
+  margin:20px 0 10px;
+  font:800 clamp(25px,7vw,48px) "Orbitron",sans-serif;
+  color:#fff;
+  text-shadow:0 0 8px #00ff55,0 0 24px rgba(0,255,70,.5);
+}
+.welcome{font:16px "Share Tech Mono",monospace;color:#7dff9a}
+.countdown{
+  margin:24px auto 0;
+  width:min(90%,430px);
+  border:1px solid #00ff55;
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 0 12px rgba(0,255,70,.35),inset 0 0 20px rgba(0,255,70,.08);
+}
+.count-text{font-family:"Share Tech Mono";color:#baffc8}
+#counter{
+  display:block;
+  font:800 42px "Orbitron";
+  color:#39ff72;
+  margin-top:5px;
+  text-shadow:0 0 14px #00ff55;
+}
+
+#site{display:none;min-height:100vh}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(0,5,2,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,255,80,.3);
+}
+.nav{
+  width:min(1100px,94%);
+  margin:auto;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.brand{display:flex;align-items:center;gap:10px;font:bold 15px Orbitron;color:#fff}
+.brand img{width:43px;height:43px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 0 7px #00ff55)}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{
+  padding:8px 11px;border-radius:20px;color:#74ff91;
+  font-size:13px;border:1px solid transparent;
+}
+.navlinks a:hover{border-color:#00ff55;box-shadow:0 0 10px rgba(0,255,80,.35)}
+
+.container{width:min(1050px,92%);margin:auto}
+.hero{
+  padding:65px 0 45px;
+  display:grid;grid-template-columns:250px 1fr;gap:45px;align-items:center;
+}
+.hero-logo{
+  width:230px;height:230px;object-fit:contain;border-radius:50%;
+  filter:drop-shadow(0 0 10px #00ff55) drop-shadow(0 0 30px rgba(0,255,70,.5));
+}
+.terminal-title{font:16px "Share Tech Mono";color:#38ff70;margin-bottom:8px}
+.hero h2{font:800 clamp(25px,5vw,42px) Orbitron;color:#fff;margin-bottom:14px}
+.hero p{font-size:17px;line-height:1.7;color:#c9ffd3}
+.modified{margin:18px 0;font:16px "Share Tech Mono";color:#40ff78}
+.checks{list-style:none;display:grid;gap:9px;color:#bfffc9}
+.checks li:before{content:"✓";color:#39ff72;font-weight:bold;margin-right:10px}
+.telegram-btn{
+  display:inline-block;margin-top:20px;padding:12px 18px;border:1px solid #00ff55;
+  border-radius:25px;color:#45ff78;font-weight:bold;
+  box-shadow:0 0 12px rgba(0,255,70,.25);
+  transition:.2s;
+}
+.telegram-btn:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(0,255,70,.5)}
+
+.section{
+  margin:25px 0 55px;
+  padding:28px 20px;
+  border:1px solid rgba(0,255,70,.35);
+  border-radius:18px;
+  background:rgba(0,10,4,.58);
+  box-shadow:0 0 25px rgba(0,255,70,.06),inset 0 0 30px rgba(0,255,70,.025);
+}
+.section-title{text-align:center;font:700 21px Orbitron;color:#45ff78;margin-bottom:25px}
+
+.social-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.social{
+  min-height:125px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:1px solid rgba(0,255,70,.35);border-radius:16px;
+  background:#020704;
+  transition:.25s;
+}
+.social:hover,.social:active{
+  transform:translateY(-4px) scale(1.02);
+  border-color:#39ff72;
+  box-shadow:0 0 12px #00ff55,0 0 35px rgba(0,255,70,.3);
+}
+.icon{
+  width:55px;height:55px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:10px;
+  border:1px solid #39ff72;
+  box-shadow:0 0 10px rgba(0,255,70,.55),inset 0 0 12px rgba(0,255,70,.15);
+}
+.social span{color:#caffd3;font-weight:bold}
+.social small{color:#59ff7c;margin-top:4px}
+
+.languages{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.lang{
+  padding:22px;border:1px solid rgba(0,255,70,.35);border-radius:15px;
+  background:#010502;line-height:1.7;color:#caffd2;
+}
+.lang h3{font:700 18px Orbitron;color:#43ff75;margin-bottom:12px}
+
+footer{
+  border-top:1px solid rgba(0,255,70,.25);
+  padding:25px 5%;
+  text-align:center;color:#54ff7b;font-size:13px;
+}
+
+@media(max-width:760px){
+  .nav{padding:10px 0}
+  .navlinks{display:none}
+  .hero{grid-template-columns:1fr;text-align:center;gap:25px;padding-top:40px}
+  .hero-logo{margin:auto;width:190px;height:190px}
+  .checks{text-align:left;max-width:340px;margin:auto}
+  .social-grid,.languages{grid-template-columns:1fr}
+  .section{padding:22px 14px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= ENTRY / 5 SECOND AUTO REDIRECT ================= -->
+<section id="loader">
+  <div class="matrix"></div>
+  <div class="loader-box">
+    <div class="terminal">
+      &gt; Initializing HW Community...<br>
+      &gt; Loading modules...<br>
+      &gt; Checking system...<br>
+      &gt; Establishing connection...<br>
+      &gt; <span style="color:#fff">Ready.</span>
+    </div>
+
+    <!-- Rename your supplied logo image to logo.png and upload it beside index.html -->
+    <img class="logo" src="logo.png" alt="HW Tutorials Logo">
+
+    <h1>WELCOME TO HW COMMUNITY</h1>
+    <div class="welcome">SECURE CONNECTION • COMMUNITY PORTAL</div>
+
+    <div class="countdown">
+      <div class="count-text">Opening community in</div>
+      <span id="counter">5</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAIN WEBSITE ================= -->
+<div id="site">
+
+<header>
+  <div class="nav">
+    <a class="brand" href="#home">
+      <img src="logo.png" alt="HW Tutorials">
+      <span>HW TUTORIALS</span>
+    </a>
+    <nav class="navlinks">
+      <a href="#home">HOME</a>
+      <a href="#social">SOCIAL</a>
+      <a href="#about">ABOUT</a>
+      <a href="#privacy">PRIVACY</a>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <section class="hero container">
+    <img class="hero-logo" src="logo.png" alt="HW Tutorials Logo">
+
+    <div>
+      <div class="terminal-title">&gt; community_connection: active</div>
+      <h2>Welcome to my website..</h2>
+      <p>
+        Join our Telegram channel for exclusive updates, tutorials,
+        useful apps and community news!
+      </p>
+
+      <div class="modified">MODIFIED BY:—<br><strong>SAMIM AKTAR (SSK)</strong></div>
+
+      <ul class="checks">
+        <li>Completely safe and free!</li>
+        <li>Share with your friends!</li>
+        <li>Learn, explore and stay updated.</li>
+      </ul>
+
+      <a class="telegram-btn" href="https://t.me/hexcaweb" target="_blank" rel="noopener">
+        ANY QUESTION? CONTACT TELEGRAM
+      </a>
+    </div>
+  </section>
+
+  <section class="section container" id="social">
+    <div class="section-title">TAP A SOCIAL ICON TO JOIN US... ↓</div>
+
+    <div class="social-grid">
+
+      <a class="social" href="https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y" target="_blank" rel="noopener">
+        <div class="icon">☏</div>
+        <span>WhatsApp</span>
+        <small>Channel</small>
+      </a>
+
+      <a class="social" href="https://youtube.com/@hexcaweb2.0?si=DmkmH5Y3nVfEeekM" target="_blank" rel="noopener">
+        <div class="icon">▶</div>
+        <span>YouTube</span>
+        <small>Channel</small>
+      </a>
+
+      <a class="social" href="https://t.me/hexcaweb" target="_blank" rel="noopener">
+        <div class="icon">➤</div>
+        <span>Telegram</span>
+        <small>Channel</small>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="section container" id="about">
+    <div class="section-title">COMMUNITY INFORMATION</div>
+
+    <div class="languages">
+      <article class="lang">
+        <h3>🇬🇧 ENGLISH</h3>
+        <p>
+          Welcome to HW Community. This website provides tutorials,
+          educational information and community updates. Use information
+          responsibly and respect applicable laws and platform rules.
+        </p>
+      </article>
+
+      <article class="lang">
+        <h3>🇧🇩 বাংলা</h3>
+        <p>
+          HW Community-তে স্বাগতম। এই ওয়েবসাইটে টিউটোরিয়াল, শিক্ষামূলক
+          তথ্য এবং বিভিন্ন কমিউনিটি আপডেট দেওয়া হয়। সব তথ্য দায়িত্বশীলভাবে
+          ব্যবহার করুন এবং আইন ও প্ল্যাটফর্মের নিয়ম মেনে চলুন।
+        </p>
+      </article>
+
+      <article class="lang">
+        <h3>🇮🇳 हिन्दी</h3>
+        <p>
+          HW Community में आपका स्वागत है। इस वेबसाइट पर ट्यूटोरियल,
+          शैक्षिक जानकारी और कम्युनिटी अपडेट दिए जाते हैं। जानकारी का
+          जिम्मेदारी से उपयोग करें और कानून तथा प्लेटफ़ॉर्म नियमों का पालन करें।
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section container" id="privacy">
+    <div class="section-title">PRIVACY & DISCLAIMER</div>
+    <div class="languages">
+      <article class="lang">
+        <h3>PRIVACY</h3>
+        <p>
+          This static website does not require you to create an account.
+          External social platforms opened from this page are governed by
+          their own privacy policies.
+        </p>
+      </article>
+
+      <article class="lang">
+        <h3>DISCLAIMER</h3>
+        <p>
+          Content is provided for educational and informational purposes.
+          We do not encourage illegal activity, unauthorized access,
+          malware, or abuse of any service.
+        </p>
+      </article>
+
+      <article class="lang">
+        <h3>STAY SAFE</h3>
+        <p>
+          Learn responsibly, protect your accounts and devices, and only
+          test systems that you own or have explicit permission to test.
+        </p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 HW Community • HW Tutorials • All Rights Reserved.
+</footer>
+
+</div>
+
+<script>
+/*
+  5-second automatic transition.
+  No button and no tap required.
+*/
+let seconds = 5;
+const counter = document.getElementById("counter");
+const loader = document.getElementById("loader");
+const site = document.getElementById("site");
+
+const timer = setInterval(() => {
+  seconds--;
+  counter.textContent = seconds;
+
+  if (seconds <= 0) {
+    clearInterval(timer);
+    loader.style.display = "none";
+    site.style.display = "block";
+    window.scrollTo(0, 0);
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
