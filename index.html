@@ -1,44 +1,2886 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hexca Web | Community</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap');
-*{box-sizing:border-box;margin:0;padding:0}body{background:#020303;color:#eaffea;font-family:Arial;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;background:linear-gradient(rgba(0,255,80,.025) 50%,transparent 50%);background-size:100% 4px;opacity:.3}a{text-decoration:none;color:inherit}button,input,textarea,select{font:inherit}
-#loader{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,rgba(0,255,70,.13),transparent 28%),#010201}.matrix{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(0,255,70,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,70,.08) 1px,transparent 1px);background-size:30px 30px;transform:perspective(500px) rotateX(55deg) scale(1.5);transform-origin:center bottom;animation:grid 8s linear infinite}@keyframes grid{to{background-position:0 600px,0 0}}.loader-box{width:min(92%,560px);text-align:center;z-index:2}.terminal{text-align:left;font:14px/1.7 'Share Tech Mono';color:#39ff72;margin-bottom:22px}.logo{width:180px;height:180px;object-fit:contain;border-radius:50%;cursor:pointer;filter:drop-shadow(0 0 10px #00ff55) drop-shadow(0 0 28px rgba(0,255,70,.7));animation:pulse 2s infinite}@keyframes pulse{50%{filter:drop-shadow(0 0 18px #00ff55) drop-shadow(0 0 45px rgba(0,255,70,.9))}}h1{font:800 clamp(25px,7vw,48px) Orbitron;color:#fff;margin:20px 0 10px;text-shadow:0 0 8px #00ff55,0 0 24px rgba(0,255,70,.5)}.welcome{font:16px 'Share Tech Mono';color:#7dff9a}.countdown{margin:24px auto;width:min(90%,430px);border:1px solid #00ff55;border-radius:14px;padding:16px}.countdown b{display:block;font:800 42px Orbitron;color:#39ff72;margin-top:5px}
-header{position:sticky;top:0;z-index:20;background:rgba(0,5,2,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,255,80,.3)}.nav{width:min(1100px,94%);margin:auto;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{display:flex;align-items:center;gap:9px;font:bold 14px Orbitron}.brand img{width:43px;height:43px;border-radius:50%;filter:drop-shadow(0 0 7px #00ff55)}.navlinks{display:flex;gap:5px;flex-wrap:wrap}.navlinks a{padding:8px 10px;border-radius:20px;color:#74ff91;font-size:12px}.navlinks a:hover{border:1px solid #00ff55}.page{display:none;min-height:calc(100vh - 68px);padding:35px 0 55px}.page.active{display:block}.container{width:min(1050px,92%);margin:auto}.center-logo{display:block;width:165px;height:165px;object-fit:contain;border-radius:50%;margin:5px auto 22px;filter:drop-shadow(0 0 12px #00ff55) drop-shadow(0 0 30px rgba(0,255,70,.5))}.title{text-align:center;font:800 clamp(25px,6vw,40px) Orbitron;color:#fff;text-shadow:0 0 10px #00ff55;margin-bottom:12px}.sub{text-align:center;color:#7dff9a;font:15px 'Share Tech Mono';margin-bottom:25px}.hero{text-align:center;padding:10px 0 25px}.hero h2{font:800 clamp(24px,5vw,38px) Orbitron;margin-bottom:14px}.hero p{max-width:760px;margin:auto;font-size:17px;line-height:1.7;color:#c9ffd3}.modified{margin:18px 0;font:16px 'Share Tech Mono';color:#40ff78}.checks{list-style:none;display:grid;gap:8px;max-width:390px;margin:18px auto;text-align:left;color:#bfffc9}.checks li:before{content:'✓';color:#39ff72;font-weight:bold;margin-right:10px}.btn{display:inline-flex;align-items:center;gap:8px;margin:7px;padding:11px 17px;border:1px solid #00ff55;border-radius:25px;color:#45ff78;background:#031108;cursor:pointer}.section{margin:25px auto 35px;padding:26px 20px;border:1px solid rgba(0,255,70,.35);border-radius:18px;background:rgba(0,10,4,.58)}.section-title{text-align:center;font:700 21px Orbitron;color:#45ff78;margin-bottom:20px}.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.social{min-height:155px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(0,255,70,.35);border-radius:16px;background:#020704;transition:.2s}.social:hover{transform:translateY(-4px);box-shadow:0 0 12px #00ff55,0 0 35px rgba(0,255,70,.3)}.icon{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:10px;border:1px solid #39ff72;color:#55ff7c;box-shadow:0 0 10px rgba(0,255,70,.55)}.social span{font-weight:bold;color:#caffd3}.social small{color:#59ff7c;margin-top:4px}.video-grid,.apk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.video-card,.apk-card,.bio-card,.text-card{border:1px solid rgba(0,255,70,.35);border-radius:15px;background:#010502;overflow:hidden}.video-card iframe{width:100%;aspect-ratio:16/9;border:0}.video-title,.apk-card,.text-card{padding:16px}.apk-card h3,.text-card h3{font:700 18px Orbitron;color:#43ff75;margin-bottom:10px}.apk-card p,.text-card p{color:#caffd2;line-height:1.7}.bio-card{max-width:700px;margin:auto;padding:28px;text-align:center}.bio-logo{width:115px;height:115px;border-radius:50%;object-fit:contain;filter:drop-shadow(0 0 15px #00ff55);margin-bottom:16px}.bio-name{font:800 24px Orbitron;color:#fff;margin-bottom:15px}.bio-row{padding:10px;border-bottom:1px solid rgba(0,255,70,.16);line-height:1.5}.bio-row b{color:#55ff7c}footer{border-top:1px solid rgba(0,255,70,.25);padding:22px;text-align:center;color:#54ff7b;font-size:13px}.footer-social{display:flex;justify-content:center;gap:16px;margin-top:10px;font-size:20px}.modal{display:none;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.84);align-items:center;justify-content:center;padding:14px}.modal.show{display:flex}.modal-box{width:min(780px,96%);max-height:90vh;overflow:auto;background:#061008;border:1px solid #35ff72;border-radius:18px;padding:20px;box-shadow:0 0 35px rgba(0,255,70,.3)}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modal-head h2{font:700 21px Orbitron;color:#45ff78}.close{width:36px;height:36px;border-radius:50%;background:transparent;color:#72ff91;border:1px solid #35ff72;cursor:pointer}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.tabs button,.item button{padding:8px 10px;border-radius:8px;border:1px solid #2cff68;background:#06170a;color:#7dff91;cursor:pointer}.admin-section{display:none}.admin-section.active{display:block}label{display:block;color:#91ffa8;margin:9px 0 5px}input,textarea,select{width:100%;padding:10px;background:#010301;color:#eaffea;border:1px solid #1fff64;border-radius:9px}.list{display:grid;gap:9px;margin-top:14px}.item{display:flex;justify-content:space-between;gap:10px;align-items:center;border:1px solid rgba(0,255,70,.3);padding:11px;border-radius:10px;background:#020704}.item small{color:#9fc8a8}.note{font-size:12px;line-height:1.5;color:#a9c9af;margin:9px 0 14px}
-@media(max-width:760px){.navlinks{display:none}.social-grid,.video-grid,.apk-grid{grid-template-columns:1fr}.section{padding:22px 14px}}
-</style></head>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#020303;
+  color:#eaffea;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
+  padding-bottom:0;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:90;
+  background:linear-gradient(
+    rgba(0,255,80,.025) 50%,
+    transparent 50%
+  );
+  background-size:100% 4px;
+  opacity:.3;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+/* =========================
+   LOADER
+========================= */
+
+#loader{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(0,255,70,.13),
+      transparent 28%
+    ),
+    #010201;
+}
+
+.matrix{
+  position:absolute;
+  inset:0;
+  opacity:.18;
+  background-image:
+    linear-gradient(
+      rgba(0,255,70,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,255,70,.08) 1px,
+      transparent 1px
+    );
+  background-size:30px 30px;
+  transform:
+    perspective(500px)
+    rotateX(55deg)
+    scale(1.5);
+  transform-origin:center bottom;
+  animation:grid 8s linear infinite;
+}
+
+@keyframes grid{
+  to{
+    background-position:0 600px,0 0;
+  }
+}
+
+.loader-box{
+  width:min(92%,560px);
+  text-align:center;
+  z-index:2;
+}
+
+.terminal{
+  text-align:left;
+  font:14px/1.7 'Share Tech Mono';
+  color:#39ff72;
+  margin-bottom:22px;
+}
+
+.logo{
+  width:180px;
+  height:180px;
+  object-fit:contain;
+  border-radius:50%;
+  cursor:pointer;
+  filter:
+    drop-shadow(0 0 10px #00ff55)
+    drop-shadow(0 0 28px rgba(0,255,70,.7));
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    filter:
+      drop-shadow(0 0 18px #00ff55)
+      drop-shadow(0 0 45px rgba(0,255,70,.9));
+  }
+}
+
+h1{
+  font:800 clamp(25px,7vw,48px) Orbitron;
+  color:#fff;
+  margin:20px 0 10px;
+  text-shadow:
+    0 0 8px #00ff55,
+    0 0 24px rgba(0,255,70,.5);
+}
+
+.welcome{
+  font:16px 'Share Tech Mono';
+  color:#7dff9a;
+}
+
+.countdown{
+  margin:24px auto;
+  width:min(90%,430px);
+  border:1px solid #00ff55;
+  border-radius:14px;
+  padding:16px;
+}
+
+.countdown b{
+  display:block;
+  font:800 42px Orbitron;
+  color:#39ff72;
+  margin-top:5px;
+}
+
+/* =========================
+   DESKTOP HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(0,5,2,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,255,80,.3);
+}
+
+.nav{
+  width:min(1100px,94%);
+  margin:auto;
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font:bold 14px Orbitron;
+}
+
+.brand img{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  filter:drop-shadow(0 0 7px #00ff55);
+}
+
+.navlinks{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+}
+
+.navlinks a{
+  padding:8px 10px;
+  border-radius:20px;
+  color:#74ff91;
+  font-size:12px;
+  transition:.2s;
+}
+
+.navlinks a:hover{
+  border:1px solid #00ff55;
+  color:#fff;
+  box-shadow:0 0 10px rgba(0,255,70,.35);
+}
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+  display:none;
+  min-height:calc(100vh - 68px);
+  padding:35px 0 55px;
+}
+
+.page.active{
+  display:block;
+}
+
+.container{
+  width:min(1050px,92%);
+  margin:auto;
+}
+
+.center-logo{
+  display:block;
+  width:165px;
+  height:165px;
+  object-fit:contain;
+  border-radius:50%;
+  margin:5px auto 22px;
+  cursor:pointer;
+  filter:
+    drop-shadow(0 0 12px #00ff55)
+    drop-shadow(0 0 30px rgba(0,255,70,.5));
+}
+
+.title{
+  text-align:center;
+  font:800 clamp(25px,6vw,40px) Orbitron;
+  color:#fff;
+  text-shadow:0 0 10px #00ff55;
+  margin-bottom:12px;
+}
+
+.sub{
+  text-align:center;
+  color:#7dff9a;
+  font:15px 'Share Tech Mono';
+  margin-bottom:25px;
+}
+
+.hero{
+  text-align:center;
+  padding:10px 0 25px;
+}
+
+.hero h2{
+  font:800 clamp(24px,5vw,38px) Orbitron;
+  margin-bottom:14px;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  font-size:17px;
+  line-height:1.7;
+  color:#c9ffd3;
+}
+
+.modified{
+  margin:18px 0;
+  font:16px 'Share Tech Mono';
+  color:#40ff78;
+}
+
+.checks{
+  list-style:none;
+  display:grid;
+  gap:8px;
+  max-width:390px;
+  margin:18px auto;
+  text-align:left;
+  color:#bfffc9;
+}
+
+.checks li:before{
+  content:'✓';
+  color:#39ff72;
+  font-weight:bold;
+  margin-right:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin:7px;
+  padding:11px 17px;
+  border:1px solid #00ff55;
+  border-radius:25px;
+  color:#45ff78;
+  background:#031108;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  color:#fff;
+  box-shadow:
+    0 0 12px #00ff55,
+    0 0 25px rgba(0,255,70,.3);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  margin:25px auto 35px;
+  padding:26px 20px;
+  border:1px solid rgba(0,255,70,.35);
+  border-radius:18px;
+  background:rgba(0,10,4,.58);
+}
+
+.section-title{
+  text-align:center;
+  font:700 21px Orbitron;
+  color:#45ff78;
+  margin-bottom:20px;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.social{
+  min-height:155px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(0,255,70,.35);
+  border-radius:16px;
+  background:#020704;
+  transition:.2s;
+}
+
+.social:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 0 12px #00ff55,
+    0 0 35px rgba(0,255,70,.3);
+}
+
+.icon{
+  width:66px;
+  height:66px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin-bottom:10px;
+  border:1px solid #39ff72;
+  color:#55ff7c;
+  box-shadow:0 0 10px rgba(0,255,70,.55);
+}
+
+.social span{
+  font-weight:bold;
+  color:#caffd3;
+}
+
+.social small{
+  color:#59ff7c;
+  margin-top:4px;
+}
+
+/* =========================
+   VIDEO / APK
+========================= */
+
+.video-grid,
+.apk-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.video-card,
+.apk-card,
+.bio-card,
+.text-card{
+  border:1px solid rgba(0,255,70,.35);
+  border-radius:15px;
+  background:#010502;
+  overflow:hidden;
+}
+
+.video-card iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+}
+
+.video-title{
+  padding:16px;
+}
+
+.apk-card{
+  padding:16px;
+}
+
+.apk-card h3,
+.text-card h3{
+  font:700 18px Orbitron;
+  color:#43ff75;
+  margin-bottom:10px;
+}
+
+.apk-card p,
+.text-card p{
+  color:#caffd2;
+  line-height:1.7;
+}
+
+/* =========================
+   BIO
+========================= */
+
+.bio-card{
+  max-width:700px;
+  margin:auto;
+  padding:28px;
+  text-align:center;
+}
+
+.bio-logo{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  object-fit:contain;
+  filter:drop-shadow(0 0 15px #00ff55);
+  margin-bottom:16px;
+}
+
+.bio-name{
+  font:800 24px Orbitron;
+  color:#fff;
+  margin-bottom:15px;
+}
+
+.bio-row{
+  padding:10px;
+  border-bottom:1px solid rgba(0,255,70,.16);
+  line-height:1.5;
+}
+
+.bio-row b{
+  color:#55ff7c;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  border-top:1px solid rgba(0,255,70,.25);
+  padding:22px;
+  text-align:center;
+  color:#54ff7b;
+  font-size:13px;
+}
+
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-top:10px;
+  font-size:20px;
+}
+
+/* =========================
+   MOBILE BOTTOM NAV
+========================= */
+
+.mobile-nav{
+  display:none;
+}
+
+/* More popup/menu */
+.more-menu{
+  display:none;
+  position:fixed;
+  right:12px;
+  bottom:78px;
+  z-index:70;
+  width:190px;
+  padding:8px;
+  background:#041008;
+  border:1px solid #27ff69;
+  border-radius:15px;
+  box-shadow:
+    0 0 20px rgba(0,255,70,.35);
+}
+
+.more-menu.show{
+  display:block;
+}
+
+.more-menu a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 12px;
+  border-radius:10px;
+  color:#baffc7;
+  font-size:13px;
+}
+
+.more-menu a:hover{
+  background:#09200e;
+  color:#39ff72;
+}
+
+.more-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:65;
+}
+
+.more-overlay.show{
+  display:block;
+}
+
+/* =========================
+   MODALS
+========================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:80;
+  background:rgba(0,0,0,.84);
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(780px,96%);
+  max-height:90vh;
+  overflow:auto;
+  background:#061008;
+  border:1px solid #35ff72;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 0 35px rgba(0,255,70,.3);
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.modal-head h2{
+  font:700 21px Orbitron;
+  color:#45ff78;
+}
+
+.close{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:transparent;
+  color:#72ff91;
+  border:1px solid #35ff72;
+  cursor:pointer;
+}
+
+.tabs{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.tabs button,
+.item button{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #2cff68;
+  background:#06170a;
+  color:#7dff91;
+  cursor:pointer;
+}
+
+.admin-section{
+  display:none;
+}
+
+.admin-section.active{
+  display:block;
+}
+
+label{
+  display:block;
+  color:#91ffa8;
+  margin:9px 0 5px;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:10px;
+  background:#010301;
+  color:#eaffea;
+  border:1px solid #1fff64;
+  border-radius:9px;
+}
+
+.list{
+  display:grid;
+  gap:9px;
+  margin-top:14px;
+}
+
+.item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  border:1px solid rgba(0,255,70,.3);
+  padding:11px;
+  border-radius:10px;
+  background:#020704;
+}
+
+.item small{
+  color:#9fc8a8;
+  word-break:break-all;
+}
+
+.note{
+  font-size:12px;
+  line-height:1.5;
+  color:#a9c9af;
+  margin:9px 0 14px;
+}
+
+/* =========================
+   MOBILE MODE
+========================= */
+
+@media(max-width:760px){
+
+  body{
+    padding-bottom:72px;
+  }
+
+  header{
+    position:sticky;
+    top:0;
+  }
+
+  .nav{
+    min-height:62px;
+    justify-content:center;
+  }
+
+  .brand{
+    font-size:15px;
+  }
+
+  .brand img{
+    width:42px;
+    height:42px;
+  }
+
+  /* Desktop menu hidden */
+  .navlinks{
+    display:none;
+  }
+
+  .page{
+    min-height:calc(100vh - 62px);
+    padding:25px 0 35px;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  .center-logo{
+    width:135px;
+    height:135px;
+    margin:5px auto 18px;
+  }
+
+  .title{
+    font-size:26px;
+  }
+
+  .sub{
+    font-size:13px;
+  }
+
+  .hero h2{
+    font-size:25px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .section{
+    padding:20px 12px;
+    border-radius:15px;
+  }
+
+  .social-grid,
+  .video-grid,
+  .apk-grid{
+    grid-template-columns:1fr;
+  }
+
+  .video-card iframe{
+    min-height:200px;
+  }
+
+  /* =====================
+     JIO STYLE BOTTOM BAR
+  ====================== */
+
+  .mobile-nav{
+    position:fixed;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    left:0;
+    right:0;
+    bottom:0;
+    height:68px;
+    z-index:60;
+    background:rgba(2,7,4,.98);
+    border-top:1px solid rgba(0,255,70,.35);
+    box-shadow:0 -5px 25px rgba(0,0,0,.6);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+
+  .mobile-nav a,
+  .mobile-nav button{
+    border:0;
+    background:transparent;
+    color:#8aff9e;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    font-size:10px;
+    cursor:pointer;
+  }
+
+  .mobile-nav i{
+    font-size:21px;
+  }
+
+  .mobile-nav span{
+    font-size:10px;
+    font-weight:bold;
+  }
+
+  .mobile-nav a.active,
+  .mobile-nav button.active{
+    color:#fff;
+    text-shadow:
+      0 0 7px #00ff55,
+      0 0 15px rgba(0,255,70,.7);
+  }
+
+  .mobile-nav a.active i,
+  .mobile-nav button.active i{
+    color:#39ff72;
+  }
+
+  footer{
+    margin-bottom:0;
+  }
+
+  .modal-box{
+    width:96%;
+    max-height:88vh;
+    padding:16px;
+  }
+
+  .item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .item > div:last-child{
+    width:100%;
+  }
+
+  .item button{
+    margin-top:4px;
+  }
+}
+
+/* Small phones */
+
+@media(max-width:380px){
+
+  .mobile-nav{
+    height:64px;
+  }
+
+  .mobile-nav i{
+    font-size:18px;
+  }
+
+  .mobile-nav span{
+    font-size:9px;
+  }
+
+  .brand{
+    font-size:13px;
+  }
+
+  .center-logo{
+    width:120px;
+    height:120px;
+  }
+}
+</style>
+</head>
+
 <body>
-<section id="loader"><div class="matrix"></div><div class="loader-box"><div class="terminal">&gt; Initializing Hexca Web Community...<br>&gt; Loading modules...<br>&gt; Checking system...<br>&gt; Establishing connection...<br>&gt; <span style="color:#fff">Ready.</span></div><img id="adminLogo" class="logo" src="logo.png" alt="Hexca Web Logo"><h1>WELCOME TO HEXCA WEB</h1><div class="welcome">SECURE CONNECTION • COMMUNITY PORTAL</div><div class="countdown">Opening community in<b id="counter">5</b></div></div></section>
-<div id="site"><header><div class="nav"><a class="brand" href="#home" data-page="home"><img src="logo.png"><span>HEXCA WEB</span></a><nav class="navlinks"><a href="#home" data-page="home">HOME</a><a href="#social" data-page="social">SOCIAL</a><a href="#apk" data-page="apk">APK LINKS</a><a href="#about" data-page="about">ABOUT</a><a href="#privacy" data-page="privacy">PRIVACY</a></nav></div></header>
+
+<!-- =========================
+     LOADER
+========================= -->
+
+<section id="loader">
+
+  <div class="matrix"></div>
+
+  <div class="loader-box">
+
+    <div class="terminal">
+      &gt; Initializing Hexca Web Community...<br>
+      &gt; Loading modules...<br>
+      &gt; Checking system...<br>
+      &gt; Establishing connection...<br>
+      &gt; <span style="color:#fff">Ready.</span>
+    </div>
+
+    <img
+      id="adminLogo"
+      class="logo"
+      src="logo.png"
+      alt="Hexca Web Logo"
+    >
+
+    <h1>WELCOME TO HEXCA WEB</h1>
+
+    <div class="welcome">
+      SECURE CONNECTION • COMMUNITY PORTAL
+    </div>
+
+    <div class="countdown">
+      Opening community in
+      <b id="counter">5</b>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================
+     WEBSITE
+========================= -->
+
+<div id="site">
+
+<header>
+
+  <div class="nav">
+
+    <a
+      class="brand"
+      href="#home"
+      data-page="home"
+    >
+      <img src="logo.png" alt="Hexca Web">
+      <span>HEXCA WEB</span>
+    </a>
+
+    <!-- DESKTOP MENU -->
+
+    <nav class="navlinks">
+
+      <a href="#home" data-page="home">
+        HOME
+      </a>
+
+      <a href="#social" data-page="social">
+        SOCIAL
+      </a>
+
+      <a href="#apk" data-page="apk">
+        APK LINKS
+      </a>
+
+      <a href="#about" data-page="about">
+        ABOUT
+      </a>
+
+      <a href="#privacy" data-page="privacy">
+        PRIVACY
+      </a>
+
+      <a href="#bio" data-page="bio">
+        MY BIO
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
-<section id="page-home" class="page active"><div class="container"><img class="center-logo" src="logo.png"><div class="hero"><h2>Welcome to Hexca Web</h2><p>Join our community for tutorials, useful updates, apps and community news.</p><div class="modified">MODIFIED BY:—<br><strong>SAMIM AKTAR (SSK)</strong></div><ul class="checks"><li>Completely safe and free!</li><li>Share with your friends!</li><li>Learn, explore and stay updated.</li></ul><a class="btn" href="https://t.me/hexcaweb" target="_blank"><i class="fa-brands fa-telegram"></i> Contact Telegram</a><button class="btn" onclick="openBio()"><i class="fa-solid fa-id-card"></i> My Bio</button></div><section class="section"><div class="section-title">MY YOUTUBE VIDEOS</div><div id="videos" class="video-grid"></div><p id="noVideos" class="note" style="text-align:center">Add your YouTube videos from Admin Panel.</p></section></div></section>
-<section id="page-social" class="page"><div class="container"><img class="center-logo" src="logo.png"><h1 class="title">SOCIAL MEDIA</h1><p class="sub">Connect with Hexca Web</p><section class="section"><div id="socialGrid" class="social-grid"></div></section></div></section>
-<section id="page-apk" class="page"><div class="container"><img class="center-logo" src="logo.png"><h1 class="title">APK LINKS</h1><p class="sub">Available app links</p><section class="section"><div id="apkGrid" class="apk-grid"></div></section></div></section>
-<section id="page-about" class="page"><div class="container"><img class="center-logo" src="logo.png"><h1 class="title">ABOUT</h1><section class="section"><div class="text-card"><h3>HEXCA WEB COMMUNITY</h3><p>Welcome to Hexca Web. This website provides tutorials, educational information, community updates and useful resources. Use information responsibly and respect applicable laws and platform rules.</p></div></section></div></section>
-<section id="page-privacy" class="page"><div class="container"><img class="center-logo" src="logo.png"><h1 class="title">PRIVACY POLICY</h1><section class="section"><div class="text-card"><h3>PRIVACY</h3><p>This static website does not require an account. External services have their own privacy policies. Do not submit passwords or sensitive personal information here.</p><br><h3>DISCLAIMER</h3><p>Content is educational and informational. We do not encourage illegal activity, unauthorized access, malware, or abuse of any service.</p></div></section></div></section>
-</main><footer>© 2026 Hexca Web • All Rights Reserved.<div class="footer-social"><a href="https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn" target="_blank"><i class="fa-brands fa-youtube"></i></a><a href="https://t.me/hexcaweb" target="_blank"><i class="fa-brands fa-telegram"></i></a><a href="https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></div></footer></div>
-<div id="bioModal" class="modal"><div class="modal-box"><div class="modal-head"><h2>MY BIO</h2><button class="close" onclick="closeBio()">×</button></div><div class="bio-card"><img class="bio-logo" src="logo.png"><div class="bio-name" id="bioName"></div><div id="bioRows"></div></div></div></div>
-<div id="adminModal" class="modal"><div class="modal-box"><div class="modal-head"><h2>HEXCA WEB ADMIN PANEL</h2><button class="close" onclick="closeAdmin()">×</button></div><p class="note"><b>Static-site note:</b> edits are saved in this browser only. GitHub Pages cannot securely publish database changes from a client-side password panel.</p><div class="tabs"><button onclick="tab('sA')">Social</button><button onclick="tab('aA')">APK</button><button onclick="tab('vA')">Videos</button><button onclick="tab('bA')">Bio</button></div>
-<div id="sA" class="admin-section active"><input id="si" type="hidden"><label>Name</label><input id="sn" placeholder="YouTube"><label>URL</label><input id="su" placeholder="https://..."><label>Icon</label><select id="sx"><option value="fa-brands fa-youtube">YouTube</option><option value="fa-brands fa-telegram">Telegram</option><option value="fa-brands fa-whatsapp">WhatsApp</option><option value="fa-brands fa-instagram">Instagram</option><option value="fa-brands fa-facebook">Facebook</option><option value="fa-solid fa-globe">Website</option></select><button class="btn" onclick="saveSocial()">SAVE SOCIAL</button><div id="sl" class="list"></div></div>
-<div id="aA" class="admin-section"><input id="ai" type="hidden"><label>APK name</label><input id="an"><label>Link</label><input id="au"><label>Description</label><textarea id="ad" rows="3"></textarea><button class="btn" onclick="saveApk()">SAVE APK</button><div id="al" class="list"></div></div>
-<div id="vA" class="admin-section"><input id="vi" type="hidden"><label>Video title</label><input id="vt"><label>YouTube video URL</label><input id="vu" placeholder="https://www.youtube.com/watch?v=..."><button class="btn" onclick="saveVideo()">SAVE VIDEO</button><p class="note">This version lets you add/edit/delete video URLs and plays them on the Home page. Automatically discovering the latest channel uploads requires a YouTube API/backend.</p><div id="vl" class="list"></div></div>
-<div id="bA" class="admin-section"><label>Name</label><input id="bn"><label>Age</label><input id="ba"><label>Education</label><input id="be"><label>Location</label><input id="bl"><label>Introduction</label><textarea id="bi" rows="3"></textarea><button class="btn" onclick="saveBio()">SAVE BIO</button><p class="note">For privacy, avoid publishing an exact home address. Keep location broad unless you are sure you want it public.</p></div>
-<button class="btn" onclick="logoutAdmin()">LOGOUT</button></div></div>
+
+<!-- HOME -->
+
+<section
+  id="page-home"
+  class="page active"
+>
+
+  <div class="container">
+
+    <!--
+      5 CLICK ADMIN LOGO
+    -->
+
+    <img
+      id="homeAdminLogo"
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web Logo"
+      title="Hexca Web"
+    >
+
+    <div class="hero">
+
+      <h2>
+        Welcome to Hexca Web
+      </h2>
+
+      <p>
+        Join our community for tutorials,
+        useful updates, apps and community news.
+      </p>
+
+      <div class="modified">
+        MODIFIED BY:—<br>
+        <strong>SAMIM AKTAR (SSK)</strong>
+      </div>
+
+      <ul class="checks">
+
+        <li>
+          Completely safe and free!
+        </li>
+
+        <li>
+          Share with your friends!
+        </li>
+
+        <li>
+          Learn, explore and stay updated.
+        </li>
+
+      </ul>
+
+      <a
+        class="btn"
+        href="https://t.me/hexcaweb"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa-brands fa-telegram"></i>
+        Contact Telegram
+      </a>
+
+      <button
+        class="btn"
+        onclick="openBio()"
+      >
+        <i class="fa-solid fa-id-card"></i>
+        My Bio
+      </button>
+
+    </div>
+
+
+    <!-- YOUTUBE -->
+
+    <section class="section">
+
+      <div class="section-title">
+        MY YOUTUBE VIDEOS
+      </div>
+
+      <div
+        id="videos"
+        class="video-grid"
+      ></div>
+
+      <p
+        id="noVideos"
+        class="note"
+        style="text-align:center"
+      >
+        Add your YouTube videos from Admin Panel.
+      </p>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section
+  id="page-social"
+  class="page"
+>
+
+  <div class="container">
+
+    <img
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web"
+    >
+
+    <h1 class="title">
+      SOCIAL MEDIA
+    </h1>
+
+    <p class="sub">
+      Connect with Hexca Web
+    </p>
+
+    <section class="section">
+
+      <div
+        id="socialGrid"
+        class="social-grid"
+      ></div>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<!-- APK -->
+
+<section
+  id="page-apk"
+  class="page"
+>
+
+  <div class="container">
+
+    <img
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web"
+    >
+
+    <h1 class="title">
+      APK LINKS
+    </h1>
+
+    <p class="sub">
+      Available app links
+    </p>
+
+    <section class="section">
+
+      <div
+        id="apkGrid"
+        class="apk-grid"
+      ></div>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section
+  id="page-about"
+  class="page"
+>
+
+  <div class="container">
+
+    <img
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web"
+    >
+
+    <h1 class="title">
+      ABOUT
+    </h1>
+
+    <section class="section">
+
+      <div class="text-card">
+
+        <h3>
+          HEXCA WEB COMMUNITY
+        </h3>
+
+        <p>
+          Welcome to Hexca Web. This website provides
+          tutorials, educational information, community
+          updates and useful resources.
+          Use information responsibly and respect
+          applicable laws and platform rules.
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<!-- PRIVACY -->
+
+<section
+  id="page-privacy"
+  class="page"
+>
+
+  <div class="container">
+
+    <img
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web"
+    >
+
+    <h1 class="title">
+      PRIVACY POLICY
+    </h1>
+
+    <section class="section">
+
+      <div class="text-card">
+
+        <h3>
+          PRIVACY
+        </h3>
+
+        <p>
+          This static website does not require an account.
+          External services have their own privacy policies.
+          Do not submit passwords or sensitive personal
+          information here.
+        </p>
+
+        <br>
+
+        <h3>
+          DISCLAIMER
+        </h3>
+
+        <p>
+          Content is educational and informational.
+          We do not encourage illegal activity,
+          unauthorized access, malware, or abuse
+          of any service.
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</section>
+
+
+<!-- MY BIO PAGE -->
+
+<section
+  id="page-bio"
+  class="page"
+>
+
+  <div class="container">
+
+    <img
+      id="bioPageLogo"
+      class="center-logo"
+      src="logo.png"
+      alt="Hexca Web"
+    >
+
+    <h1 class="title">
+      MY BIO
+    </h1>
+
+    <p class="sub">
+      About me
+    </p>
+
+    <section class="section">
+
+      <div class="bio-card">
+
+        <img
+          class="bio-logo"
+          src="logo.png"
+          alt="Hexca Web"
+        >
+
+        <div
+          class="bio-name"
+          id="bioPageName"
+        ></div>
+
+        <div id="bioPageRows"></div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  © 2026 Hexca Web • All Rights Reserved.
+
+  <div class="footer-social">
+
+    <a
+      href="https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a
+      href="https://t.me/hexcaweb"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa-brands fa-telegram"></i>
+    </a>
+
+    <a
+      href="https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y"
+      target="_blank"
+      rel="noopener"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+  </div>
+
+</footer>
+
+</div>
+
+
+<!-- =========================
+     MOBILE BOTTOM NAV
+========================= -->
+
+<nav class="mobile-nav">
+
+  <a
+    href="#home"
+    data-page="home"
+    class="mobile-link"
+  >
+    <i class="fa-solid fa-house"></i>
+    <span>HOME</span>
+  </a>
+
+  <a
+    href="#social"
+    data-page="social"
+    class="mobile-link"
+  >
+    <i class="fa-solid fa-users"></i>
+    <span>SOCIAL</span>
+  </a>
+
+  <a
+    href="#apk"
+    data-page="apk"
+    class="mobile-link"
+  >
+    <i class="fa-solid fa-download"></i>
+    <span>APK</span>
+  </a>
+
+  <a
+    href="#bio"
+    data-page="bio"
+    class="mobile-link"
+  >
+    <i class="fa-solid fa-id-card"></i>
+    <span>MY BIO</span>
+  </a>
+
+  <button
+    id="moreButton"
+    type="button"
+  >
+    <i class="fa-solid fa-ellipsis"></i>
+    <span>MORE</span>
+  </button>
+
+</nav>
+
+
+<!-- MORE OVERLAY -->
+
+<div
+  id="moreOverlay"
+  class="more-overlay"
+></div>
+
+
+<!-- MORE MENU -->
+
+<div
+  id="moreMenu"
+  class="more-menu"
+>
+
+  <a
+    href="#about"
+    data-page="about"
+  >
+    <i class="fa-solid fa-circle-info"></i>
+    ABOUT
+  </a>
+
+  <a
+    href="#privacy"
+    data-page="privacy"
+  >
+    <i class="fa-solid fa-shield-halved"></i>
+    PRIVACY
+  </a>
+
+</div>
+
+
+<!-- =========================
+     BIO MODAL
+========================= -->
+
+<div
+  id="bioModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>
+        MY BIO
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeBio()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="bio-card">
+
+      <img
+        class="bio-logo"
+        src="logo.png"
+        alt="Hexca Web"
+      >
+
+      <div
+        class="bio-name"
+        id="bioName"
+      ></div>
+
+      <div id="bioRows"></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     ADMIN PANEL
+========================= -->
+
+<div
+  id="adminModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>
+        HEXCA WEB ADMIN PANEL
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeAdmin()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <p class="note">
+
+      <b>Static-site note:</b>
+      edits are saved in this browser only.
+      GitHub Pages cannot securely publish database
+      changes from a client-side password panel.
+
+    </p>
+
+
+    <!-- ADMIN TABS -->
+
+    <div class="tabs">
+
+      <button onclick="tab('sA')">
+        Social
+      </button>
+
+      <button onclick="tab('aA')">
+        APK
+      </button>
+
+      <button onclick="tab('vA')">
+        Videos
+      </button>
+
+      <button onclick="tab('bA')">
+        Bio
+      </button>
+
+    </div>
+
+
+    <!-- SOCIAL ADMIN -->
+
+    <div
+      id="sA"
+      class="admin-section active"
+    >
+
+      <input
+        id="si"
+        type="hidden"
+      >
+
+      <label>
+        Name
+      </label>
+
+      <input
+        id="sn"
+        placeholder="YouTube"
+      >
+
+      <label>
+        URL
+      </label>
+
+      <input
+        id="su"
+        placeholder="https://..."
+      >
+
+      <label>
+        Icon
+      </label>
+
+      <select id="sx">
+
+        <option value="fa-brands fa-youtube">
+          YouTube
+        </option>
+
+        <option value="fa-brands fa-telegram">
+          Telegram
+        </option>
+
+        <option value="fa-brands fa-whatsapp">
+          WhatsApp
+        </option>
+
+        <option value="fa-brands fa-instagram">
+          Instagram
+        </option>
+
+        <option value="fa-brands fa-facebook">
+          Facebook
+        </option>
+
+        <option value="fa-solid fa-globe">
+          Website
+        </option>
+
+      </select>
+
+      <button
+        class="btn"
+        onclick="saveSocial()"
+      >
+        SAVE SOCIAL
+      </button>
+
+      <div
+        id="sl"
+        class="list"
+      ></div>
+
+    </div>
+
+
+    <!-- APK ADMIN -->
+
+    <div
+      id="aA"
+      class="admin-section"
+    >
+
+      <input
+        id="ai"
+        type="hidden"
+      >
+
+      <label>
+        APK name
+      </label>
+
+      <input id="an">
+
+      <label>
+        Link
+      </label>
+
+      <input id="au">
+
+      <label>
+        Description
+      </label>
+
+      <textarea
+        id="ad"
+        rows="3"
+      ></textarea>
+
+      <button
+        class="btn"
+        onclick="saveApk()"
+      >
+        SAVE APK
+      </button>
+
+      <div
+        id="al"
+        class="list"
+      ></div>
+
+    </div>
+
+
+    <!-- VIDEO ADMIN -->
+
+    <div
+      id="vA"
+      class="admin-section"
+    >
+
+      <input
+        id="vi"
+        type="hidden"
+      >
+
+      <label>
+        Video title
+      </label>
+
+      <input id="vt">
+
+      <label>
+        YouTube video URL
+      </label>
+
+      <input
+        id="vu"
+        placeholder="https://www.youtube.com/watch?v=..."
+      >
+
+      <button
+        class="btn"
+        onclick="saveVideo()"
+      >
+        SAVE VIDEO
+      </button>
+
+      <p class="note">
+
+        This version lets you add/edit/delete
+        video URLs and plays them on the Home page.
+        Automatically discovering the latest channel
+        uploads requires a YouTube API/backend.
+
+      </p>
+
+      <div
+        id="vl"
+        class="list"
+      ></div>
+
+    </div>
+
+
+    <!-- BIO ADMIN -->
+
+    <div
+      id="bA"
+      class="admin-section"
+    >
+
+      <label>
+        Name
+      </label>
+
+      <input id="bn">
+
+      <label>
+        Age
+      </label>
+
+      <input id="ba">
+
+      <label>
+        Education
+      </label>
+
+      <input id="be">
+
+      <label>
+        Location
+      </label>
+
+      <input id="bl">
+
+      <label>
+        Introduction
+      </label>
+
+      <textarea
+        id="bi"
+        rows="3"
+      ></textarea>
+
+      <button
+        class="btn"
+        onclick="saveBio()"
+      >
+        SAVE BIO
+      </button>
+
+      <p class="note">
+
+        For privacy, avoid publishing an exact home
+        address. Keep location broad unless you are
+        sure you want it public.
+
+      </p>
+
+    </div>
+
+
+    <button
+      class="btn"
+      onclick="logoutAdmin()"
+    >
+      LOGOUT
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
+
+/* =========================================
+   DEFAULT DATA
+========================================= */
+
 const PASS='HWADMIN123';
-const defaults={social:[{name:'YouTube',url:'https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn',icon:'fa-brands fa-youtube'},{name:'Telegram',url:'https://t.me/hexcaweb',icon:'fa-brands fa-telegram'},{name:'WhatsApp',url:'https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y',icon:'fa-brands fa-whatsapp'}],apk:[],videos:[],bio:{name:'SAMIM AKTAR (SSK)',age:'',education:'B.A. — Currently pursuing / final stage',location:'West Bengal, India',intro:'Assalamualaikum brother. Welcome to my personal bio.'}};
-function data(){let x=JSON.parse(localStorage.hexcaData||'null');return x?{...defaults,...x,bio:{...defaults.bio,...(x.bio||{})}}:defaults}function save(d){localStorage.hexcaData=JSON.stringify(d)}function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}function safe(s){return String(s).replace(/"/g,'&quot;')}
-function vid(u){let m=String(u).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{6,})/);return m?m[1]:''}
-function render(){let d=data();socialGrid.innerHTML=d.social.map(x=>`<a class="social" href="${safe(x.url)}" target="_blank" rel="noopener"><div class="icon"><i class="${safe(x.icon)}"></i></div><span>${esc(x.name)}</span><small>Tap to open</small></a>`).join('');apkGrid.innerHTML=d.apk.length?d.apk.map(x=>`<div class="apk-card"><h3>${esc(x.name)}</h3><p>${esc(x.desc||'App link')}</p><a class="btn" href="${safe(x.url)}" target="_blank"><i class="fa-solid fa-link"></i> Open Link</a></div>`).join(''):'<p class="note">No APK links added yet.</p>';videos.innerHTML=d.videos.map(x=>`<div class="video-card"><iframe src="https://www.youtube.com/embed/${vid(x.url)}" title="${esc(x.title)}" allowfullscreen></iframe><div class="video-title">${esc(x.title)}</div></div>`).join('');noVideos.style.display=d.videos.length?'none':'block';bioName.textContent=d.bio.name;bioRows.innerHTML=`<div class="bio-row">${esc(d.bio.intro)}</div><div class="bio-row"><b>AGE:</b> ${esc(d.bio.age||'—')}</div><div class="bio-row"><b>EDUCATION:</b> ${esc(d.bio.education)}</div><div class="bio-row"><b>LOCATION:</b> ${esc(d.bio.location)}</div>`;lists()}
-function lists(){let d=data();sl.innerHTML=d.social.map((x,i)=>`<div class="item"><div><b>${esc(x.name)}</b><br><small>${esc(x.url)}</small></div><div><button onclick="es(${i})">Edit</button> <button onclick="del('social',${i})">Delete</button></div></div>`).join('');al.innerHTML=d.apk.map((x,i)=>`<div class="item"><div><b>${esc(x.name)}</b><br><small>${esc(x.url)}</small></div><div><button onclick="ea(${i})">Edit</button> <button onclick="del('apk',${i})">Delete</button></div></div>`).join('');vl.innerHTML=d.videos.map((x,i)=>`<div class="item"><div><b>${esc(x.title)}</b><br><small>${esc(x.url)}</small></div><div><button onclick="ev(${i})">Edit</button> <button onclick="del('videos',${i})">Delete</button></div></div>`).join('')}
-function saveSocial(){let d=data(),i=si.value,o={name:sn.value,url:su.value,icon:sx.value};if(!o.name||!o.url)return alert('Name and URL required');i===''?d.social.push(o):d.social[i]=o;save(d);si.value='';sn.value='';su.value='';render()}function es(i){let x=data().social[i];si.value=i;sn.value=x.name;su.value=x.url;sx.value=x.icon}function saveApk(){let d=data(),i=ai.value,o={name:an.value,url:au.value,desc:ad.value};if(!o.name||!o.url)return alert('Name and link required');i===''?d.apk.push(o):d.apk[i]=o;save(d);ai.value='';an.value='';au.value='';ad.value='';render()}function ea(i){let x=data().apk[i];ai.value=i;an.value=x.name;au.value=x.url;ad.value=x.desc||''}function saveVideo(){let d=data(),i=vi.value,o={title:vt.value,url:vu.value};if(!o.title||!vid(o.url))return alert('Valid YouTube video URL required');i===''?d.videos.push(o):d.videos[i]=o;save(d);vi.value='';vt.value='';vu.value='';render()}function ev(i){let x=data().videos[i];vi.value=i;vt.value=x.title;vu.value=x.url}function del(k,i){if(confirm('Delete this item?')){let d=data();d[k].splice(i,1);save(d);render()}}function saveBio(){let d=data();d.bio={name:bn.value,age:ba.value,education:be.value,location:bl.value,intro:bi.value};save(d);render();alert('Bio saved')}
-function tab(id){document.querySelectorAll('.admin-section').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='bA'){let b=data().bio;bn.value=b.name;ba.value=b.age;be.value=b.education;bl.value=b.location;bi.value=b.intro}}
-function openBio(){bioModal.classList.add('show');history.pushState({modal:'bio'},'','#bio')}function closeBio(){bioModal.classList.remove('show');if(location.hash==='#bio')history.back()}function openAdmin(){adminModal.classList.add('show');history.pushState({modal:'admin'},'','#admin');render()}function closeAdmin(){adminModal.classList.remove('show');if(location.hash==='#admin')history.back()}function logoutAdmin(){sessionStorage.removeItem('hexcaAdmin');closeAdmin()}
-let taps=0,timer;adminLogo.onclick=()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,1400);if(taps>=5){taps=0;if(sessionStorage.hexcaAdmin==='1')openAdmin();else{let p=prompt('Admin password:');if(p===PASS){sessionStorage.hexcaAdmin='1';openAdmin()}else if(p!==null)alert('Wrong password')}}};
-function page(n,push=true){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));(document.getElementById('page-'+n)||document.getElementById('page-home')).classList.add('active');if(push)history.pushState({page:n},'', '#'+n);scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('[data-page]').forEach(a=>a.onclick=e=>{e.preventDefault();page(a.dataset.page)});onpopstate=()=>{if(location.hash==='#bio'){bioModal.classList.add('show');return}if(location.hash==='#admin'){adminModal.classList.add('show');return}bioModal.classList.remove('show');adminModal.classList.remove('show');page(location.hash.slice(1)||'home',false)};
-render();let s=5;let t=setInterval(()=>{counter.textContent=--s;if(s<=0){clearInterval(t);loader.style.display='none';page('home',false)}},1000);
-</script></body></html>
+
+const defaults={
+
+  social:[
+
+    {
+      name:'YouTube',
+      url:'https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn',
+      icon:'fa-brands fa-youtube'
+    },
+
+    {
+      name:'Telegram',
+      url:'https://t.me/hexcaweb',
+      icon:'fa-brands fa-telegram'
+    },
+
+    {
+      name:'WhatsApp',
+      url:'https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y',
+      icon:'fa-brands fa-whatsapp'
+    }
+
+  ],
+
+  apk:[],
+
+  videos:[],
+
+  bio:{
+
+    name:'SAMIM AKTAR (SSK)',
+
+    age:'',
+
+    education:'B.A. — Currently pursuing / final stage',
+
+    location:'West Bengal, India',
+
+    intro:'Assalamualaikum brother. Welcome to my personal bio.'
+
+  }
+
+};
+
+
+/* =========================================
+   DATA
+========================================= */
+
+function data(){
+
+  let x;
+
+  try{
+    x=JSON.parse(localStorage.hexcaData||'null');
+  }catch(e){
+    x=null;
+  }
+
+  if(!x){
+    return defaults;
+  }
+
+  return{
+
+    ...defaults,
+
+    ...x,
+
+    bio:{
+      ...defaults.bio,
+      ...(x.bio||{})
+    }
+
+  };
+
+}
+
+
+function save(d){
+
+  localStorage.hexcaData=
+    JSON.stringify(d);
+
+}
+
+
+/* =========================================
+   ESCAPE
+========================================= */
+
+function esc(s){
+
+  return String(s??'').replace(
+    /[&<>"']/g,
+    m=>({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#039;'
+    }[m])
+  );
+
+}
+
+
+function safe(s){
+
+  return String(s??'')
+    .replace(/"/g,'&quot;');
+
+}
+
+
+/* =========================================
+   YOUTUBE ID
+========================================= */
+
+function vid(u){
+
+  let m=String(u).match(
+    /(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{6,})/
+  );
+
+  return m?m[1]:'';
+
+}
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function render(){
+
+  let d=data();
+
+
+  /* SOCIAL */
+
+  socialGrid.innerHTML=
+
+    d.social.map(x=>`
+
+      <a
+        class="social"
+        href="${safe(x.url)}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="icon">
+
+          <i class="${safe(x.icon)}"></i>
+
+        </div>
+
+        <span>
+          ${esc(x.name)}
+        </span>
+
+        <small>
+          Tap to open
+        </small>
+
+      </a>
+
+    `).join('');
+
+
+  /* APK */
+
+  apkGrid.innerHTML=
+
+    d.apk.length?
+
+      d.apk.map(x=>`
+
+        <div class="apk-card">
+
+          <h3>
+            ${esc(x.name)}
+          </h3>
+
+          <p>
+            ${esc(x.desc||'App link')}
+          </p>
+
+          <a
+            class="btn"
+            href="${safe(x.url)}"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <i class="fa-solid fa-link"></i>
+
+            Open Link
+
+          </a>
+
+        </div>
+
+      `).join('')
+
+      :
+
+      '<p class="note">No APK links added yet.</p>';
+
+
+  /* VIDEOS */
+
+  videos.innerHTML=
+
+    d.videos.map(x=>`
+
+      <div class="video-card">
+
+        <iframe
+          src="https://www.youtube.com/embed/${vid(x.url)}"
+          title="${esc(x.title)}"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+
+        <div class="video-title">
+          ${esc(x.title)}
+        </div>
+
+      </div>
+
+    `).join('');
+
+
+  noVideos.style.display=
+    d.videos.length?'none':'block';
+
+
+  /* BIO MODAL */
+
+  bioName.textContent=
+    d.bio.name;
+
+
+  bioRows.innerHTML=`
+
+    <div class="bio-row">
+      ${esc(d.bio.intro)}
+    </div>
+
+    <div class="bio-row">
+      <b>AGE:</b>
+      ${esc(d.bio.age||'—')}
+    </div>
+
+    <div class="bio-row">
+      <b>EDUCATION:</b>
+      ${esc(d.bio.education)}
+    </div>
+
+    <div class="bio-row">
+      <b>LOCATION:</b>
+      ${esc(d.bio.location)}
+    </div>
+
+  `;
+
+
+  /* BIO PAGE */
+
+  bioPageName.textContent=
+    d.bio.name;
+
+
+  bioPageRows.innerHTML=`
+
+    <div class="bio-row">
+      ${esc(d.bio.intro)}
+    </div>
+
+    <div class="bio-row">
+      <b>AGE:</b>
+      ${esc(d.bio.age||'—')}
+    </div>
+
+    <div class="bio-row">
+      <b>EDUCATION:</b>
+      ${esc(d.bio.education)}
+    </div>
+
+    <div class="bio-row">
+      <b>LOCATION:</b>
+      ${esc(d.bio.location)}
+    </div>
+
+  `;
+
+
+  lists();
+
+}
+
+
+/* =========================================
+   ADMIN LISTS
+========================================= */
+
+function lists(){
+
+  let d=data();
+
+
+  sl.innerHTML=
+
+    d.social.map((x,i)=>`
+
+      <div class="item">
+
+        <div>
+
+          <b>
+            ${esc(x.name)}
+          </b>
+
+          <br>
+
+          <small>
+            ${esc(x.url)}
+          </small>
+
+        </div>
+
+        <div>
+
+          <button onclick="es(${i})">
+            Edit
+          </button>
+
+          <button onclick="del('social',${i})">
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join('');
+
+
+  al.innerHTML=
+
+    d.apk.map((x,i)=>`
+
+      <div class="item">
+
+        <div>
+
+          <b>
+            ${esc(x.name)}
+          </b>
+
+          <br>
+
+          <small>
+            ${esc(x.url)}
+          </small>
+
+        </div>
+
+        <div>
+
+          <button onclick="ea(${i})">
+            Edit
+          </button>
+
+          <button onclick="del('apk',${i})">
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join('');
+
+
+  vl.innerHTML=
+
+    d.videos.map((x,i)=>`
+
+      <div class="item">
+
+        <div>
+
+          <b>
+            ${esc(x.title)}
+          </b>
+
+          <br>
+
+          <small>
+            ${esc(x.url)}
+          </small>
+
+        </div>
+
+        <div>
+
+          <button onclick="ev(${i})">
+            Edit
+          </button>
+
+          <button onclick="del('videos',${i})">
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join('');
+
+}
+
+
+/* =========================================
+   SOCIAL SAVE
+========================================= */
+
+function saveSocial(){
+
+  let d=data();
+
+  let i=si.value;
+
+  let o={
+    name:sn.value.trim(),
+    url:su.value.trim(),
+    icon:sx.value
+  };
+
+  if(!o.name||!o.url){
+
+    return alert(
+      'Name and URL required'
+    );
+
+  }
+
+  i===''?
+    d.social.push(o):
+    d.social[i]=o;
+
+  save(d);
+
+  si.value='';
+  sn.value='';
+  su.value='';
+
+  render();
+
+}
+
+
+function es(i){
+
+  let x=data().social[i];
+
+  si.value=i;
+  sn.value=x.name;
+  su.value=x.url;
+  sx.value=x.icon;
+
+}
+
+
+/* =========================================
+   APK SAVE
+========================================= */
+
+function saveApk(){
+
+  let d=data();
+
+  let i=ai.value;
+
+  let o={
+    name:an.value.trim(),
+    url:au.value.trim(),
+    desc:ad.value.trim()
+  };
+
+  if(!o.name||!o.url){
+
+    return alert(
+      'Name and link required'
+    );
+
+  }
+
+  i===''?
+    d.apk.push(o):
+    d.apk[i]=o;
+
+  save(d);
+
+  ai.value='';
+  an.value='';
+  au.value='';
+  ad.value='';
+
+  render();
+
+}
+
+
+function ea(i){
+
+  let x=data().apk[i];
+
+  ai.value=i;
+  an.value=x.name;
+  au.value=x.url;
+  ad.value=x.desc||'';
+
+}
+
+
+/* =========================================
+   VIDEO SAVE
+========================================= */
+
+function saveVideo(){
+
+  let d=data();
+
+  let i=vi.value;
+
+  let o={
+    title:vt.value.trim(),
+    url:vu.value.trim()
+  };
+
+  if(!o.title||!vid(o.url)){
+
+    return alert(
+      'Valid YouTube video URL required'
+    );
+
+  }
+
+  i===''?
+    d.videos.push(o):
+    d.videos[i]=o;
+
+  save(d);
+
+  vi.value='';
+  vt.value='';
+  vu.value='';
+
+  render();
+
+}
+
+
+function ev(i){
+
+  let x=data().videos[i];
+
+  vi.value=i;
+  vt.value=x.title;
+  vu.value=x.url;
+
+}
+
+
+/* =========================================
+   DELETE
+========================================= */
+
+function del(k,i){
+
+  if(
+    confirm(
+      'Delete this item?'
+    )
+  ){
+
+    let d=data();
+
+    d[k].splice(i,1);
+
+    save(d);
+
+    render();
+
+  }
+
+}
+
+
+/* =========================================
+   BIO SAVE
+========================================= */
+
+function saveBio(){
+
+  let d=data();
+
+  d.bio={
+
+    name:bn.value.trim(),
+
+    age:ba.value.trim(),
+
+    education:be.value.trim(),
+
+    location:bl.value.trim(),
+
+    intro:bi.value.trim()
+
+  };
+
+  save(d);
+
+  render();
+
+  alert(
+    'Bio saved'
+  );
+
+}
+
+
+/* =========================================
+   ADMIN TAB
+========================================= */
+
+function tab(id){
+
+  document
+    .querySelectorAll('.admin-section')
+    .forEach(x=>
+      x.classList.remove('active')
+    );
+
+  document
+    .getElementById(id)
+    .classList.add('active');
+
+
+  if(id==='bA'){
+
+    let b=data().bio;
+
+    bn.value=b.name;
+    ba.value=b.age;
+    be.value=b.education;
+    bl.value=b.location;
+    bi.value=b.intro;
+
+  }
+
+}
+
+
+/* =========================================
+   BIO MODAL
+========================================= */
+
+function openBio(){
+
+  bioModal.classList.add('show');
+
+  history.pushState(
+    {modal:'bio'},
+    '',
+    '#bio'
+  );
+
+  render();
+
+}
+
+
+function closeBio(){
+
+  bioModal.classList.remove('show');
+
+  if(
+    location.hash==='#bio'
+  ){
+    history.back();
+  }
+
+}
+
+
+/* =========================================
+   ADMIN
+========================================= */
+
+function openAdmin(){
+
+  adminModal.classList.add('show');
+
+  history.pushState(
+    {modal:'admin'},
+    '',
+    '#admin'
+  );
+
+  render();
+
+}
+
+
+function closeAdmin(){
+
+  adminModal.classList.remove('show');
+
+  if(
+    location.hash==='#admin'
+  ){
+    history.back();
+  }
+
+}
+
+
+function logoutAdmin(){
+
+  sessionStorage.removeItem(
+    'hexcaAdmin'
+  );
+
+  closeAdmin();
+
+}
+
+
+/* =========================================
+   5 CLICK ADMIN SYSTEM
+========================================= */
+
+let taps=0;
+let timer;
+
+
+/*
+   Home-এর center logo
+   ৫ বার দ্রুত click/tap
+*/
+
+function adminTap(){
+
+  taps++;
+
+  clearTimeout(timer);
+
+  timer=setTimeout(
+    ()=>{
+      taps=0;
+    },
+    1400
+  );
+
+  if(taps>=5){
+
+    taps=0;
+
+    if(
+      sessionStorage.hexcaAdmin==='1'
+    ){
+
+      openAdmin();
+
+    }else{
+
+      let p=
+        prompt(
+          'Admin password:'
+        );
+
+      if(
+        p===PASS
+      ){
+
+        sessionStorage.hexcaAdmin='1';
+
+        openAdmin();
+
+      }else if(
+        p!==null
+      ){
+
+        alert(
+          'Wrong password'
+        );
+
+      }
+
+    }
+
+  }
+
+}
+
+
+/*
+   Loader logo-তেও ৫ click রাখা হলো
+*/
+
+adminLogo.addEventListener(
+  'click',
+  adminTap
+);
+
+
+/*
+   Main Home logo
+*/
+
+homeAdminLogo.addEventListener(
+  'click',
+  adminTap
+);
+
+
+/* =========================================
+   PAGE SYSTEM
+========================================= */
+
+function updateMobileActive(name){
+
+  document
+    .querySelectorAll('.mobile-link')
+    .forEach(a=>{
+
+      a.classList.toggle(
+        'active',
+        a.dataset.page===name
+      );
+
+    });
+
+}
+
+
+function page(n,push=true){
+
+  let allowed=[
+    'home',
+    'social',
+    'apk',
+    'about',
+    'privacy',
+    'bio'
+  ];
+
+  if(!allowed.includes(n)){
+    n='home';
+  }
+
+
+  document
+    .querySelectorAll('.page')
+    .forEach(x=>
+      x.classList.remove('active')
+    );
+
+
+  let target=
+    document.getElementById(
+      'page-'+n
+    );
+
+
+  if(target){
+    target.classList.add('active');
+  }
+
+
+  updateMobileActive(n);
+
+
+  closeMore(false);
+
+
+  if(push){
+
+    history.pushState(
+      {page:n},
+      '',
+      '#'+n
+    );
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+}
+
+
+/* =========================================
+   PAGE LINKS
+========================================= */
+
+document
+  .querySelectorAll('[data-page]')
+  .forEach(a=>{
+
+    a.addEventListener(
+      'click',
+      e=>{
+
+        e.preventDefault();
+
+        page(
+          a.dataset.page
+        );
+
+      }
+    );
+
+  });
+
+
+/* =========================================
+   MORE MENU
+========================================= */
+
+const moreButton=
+  document.getElementById(
+    'moreButton'
+  );
+
+const moreMenu=
+  document.getElementById(
+    'moreMenu'
+  );
+
+const moreOverlay=
+  document.getElementById(
+    'moreOverlay'
+  );
+
+
+function closeMore(){
+
+  moreMenu.classList.remove(
+    'show'
+  );
+
+  moreOverlay.classList.remove(
+    'show'
+  );
+
+}
+
+
+moreButton.addEventListener(
+  'click',
+  e=>{
+
+    e.stopPropagation();
+
+    moreMenu.classList.toggle(
+      'show'
+    );
+
+    moreOverlay.classList.toggle(
+      'show'
+    );
+
+  }
+);
+
+
+moreOverlay.addEventListener(
+  'click',
+  closeMore
+);
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+window.onpopstate=function(){
+
+  if(
+    location.hash==='#bio'
+  ){
+
+    bioModal.classList.add(
+      'show'
+    );
+
+    adminModal.classList.remove(
+      'show'
+    );
+
+    return;
+
+  }
+
+
+  if(
+    location.hash==='#admin'
+  ){
+
+    adminModal.classList.add(
+      'show'
+    );
+
+    bioModal.classList.remove(
+      'show'
+    );
+
+    return;
+
+  }
+
+
+  bioModal.classList.remove(
+    'show'
+  );
+
+  adminModal.classList.remove(
+    'show'
+  );
+
+
+  page(
+    location.hash.slice(1)||'home',
+    false
+  );
+
+};
+
+
+/* =========================================
+   INITIAL RENDER
+========================================= */
+
+render();
+
+
+/* =========================================
+   LOADER COUNTDOWN
+========================================= */
+
+let s=5;
+
+let t=setInterval(
+
+  ()=>{
+
+    s--;
+
+    counter.textContent=s;
+
+    if(s<=0){
+
+      clearInterval(t);
+
+      loader.style.display='none';
+
+      page(
+        location.hash.slice(1)||'home',
+        false
+      );
+
+    }
+
+  },
+
+  1000
+
+);
+
+</script>
+
+</body>
+</html>
