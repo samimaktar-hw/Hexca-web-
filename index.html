@@ -17,9 +17,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   background:#020303;
@@ -43,21 +41,11 @@ body:before{
   opacity:.3;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+a{text-decoration:none;color:inherit}
 
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
+button,input,textarea,select{font:inherit}
 
-/* =========================
-   LOADER
-========================= */
+/* LOADER */
 
 #loader{
   position:fixed;
@@ -99,9 +87,7 @@ select{
 }
 
 @keyframes grid{
-  to{
-    background-position:0 600px,0 0;
-  }
+  to{background-position:0 600px,0 0}
 }
 
 .loader-box{
@@ -166,9 +152,7 @@ h1{
   margin-top:5px;
 }
 
-/* =========================
-   DESKTOP HEADER
-========================= */
+/* HEADER */
 
 header{
   position:sticky;
@@ -223,9 +207,7 @@ header{
   box-shadow:0 0 10px rgba(0,255,70,.35);
 }
 
-/* =========================
-   PAGES
-========================= */
+/* PAGES */
 
 .page{
   display:none;
@@ -233,9 +215,7 @@ header{
   padding:35px 0 55px;
 }
 
-.page.active{
-  display:block;
-}
+.page.active{display:block}
 
 .container{
   width:min(1050px,92%);
@@ -333,9 +313,7 @@ header{
     0 0 25px rgba(0,255,70,.3);
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 .section{
   margin:25px auto 35px;
@@ -352,9 +330,7 @@ header{
   margin-bottom:20px;
 }
 
-/* =========================
-   SOCIAL
-========================= */
+/* SOCIAL */
 
 .social-grid{
   display:grid;
@@ -405,9 +381,7 @@ header{
   margin-top:4px;
 }
 
-/* =========================
-   VIDEO / APK
-========================= */
+/* VIDEO / APK */
 
 .video-grid,
 .apk-grid{
@@ -432,13 +406,9 @@ header{
   border:0;
 }
 
-.video-title{
-  padding:16px;
-}
+.video-title{padding:16px}
 
-.apk-card{
-  padding:16px;
-}
+.apk-card{padding:16px}
 
 .apk-card h3,
 .text-card h3{
@@ -453,9 +423,7 @@ header{
   line-height:1.7;
 }
 
-/* =========================
-   BIO
-========================= */
+/* BIO */
 
 .bio-card{
   max-width:700px;
@@ -485,13 +453,9 @@ header{
   line-height:1.5;
 }
 
-.bio-row b{
-  color:#55ff7c;
-}
+.bio-row b{color:#55ff7c}
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   border-top:1px solid rgba(0,255,70,.25);
@@ -509,15 +473,10 @@ footer{
   font-size:20px;
 }
 
-/* =========================
-   MOBILE BOTTOM NAV
-========================= */
+/* MOBILE NAV */
 
-.mobile-nav{
-  display:none;
-}
+.mobile-nav{display:none}
 
-/* More popup/menu */
 .more-menu{
   display:none;
   position:fixed;
@@ -529,13 +488,10 @@ footer{
   background:#041008;
   border:1px solid #27ff69;
   border-radius:15px;
-  box-shadow:
-    0 0 20px rgba(0,255,70,.35);
+  box-shadow:0 0 20px rgba(0,255,70,.35);
 }
 
-.more-menu.show{
-  display:block;
-}
+.more-menu.show{display:block}
 
 .more-menu a{
   display:flex;
@@ -559,13 +515,9 @@ footer{
   z-index:65;
 }
 
-.more-overlay.show{
-  display:block;
-}
+.more-overlay.show{display:block}
 
-/* =========================
-   MODALS
-========================= */
+/* MODALS */
 
 .modal{
   display:none;
@@ -578,9 +530,7 @@ footer{
   padding:14px;
 }
 
-.modal.show{
-  display:flex;
-}
+.modal.show{display:flex}
 
 .modal-box{
   width:min(780px,96%);
@@ -632,13 +582,9 @@ footer{
   cursor:pointer;
 }
 
-.admin-section{
-  display:none;
-}
+.admin-section{display:none}
 
-.admin-section.active{
-  display:block;
-}
+.admin-section.active{display:block}
 
 label{
   display:block;
@@ -686,48 +632,34 @@ select{
   margin:9px 0 14px;
 }
 
-/* =========================
-   MOBILE MODE
-========================= */
+/* MOBILE */
 
 @media(max-width:760px){
 
-  body{
-    padding-bottom:72px;
-  }
+  body{padding-bottom:72px}
 
-  header{
-    position:sticky;
-    top:0;
-  }
+  header{position:sticky;top:0}
 
   .nav{
     min-height:62px;
     justify-content:center;
   }
 
-  .brand{
-    font-size:15px;
-  }
+  .brand{font-size:15px}
 
   .brand img{
     width:42px;
     height:42px;
   }
 
-  /* Desktop menu hidden */
-  .navlinks{
-    display:none;
-  }
+  .navlinks{display:none}
 
   .page{
     min-height:calc(100vh - 62px);
     padding:25px 0 35px;
   }
 
-  .container{
-    width:94%;
-  }
+  .container{width:94%}
 
   .center-logo{
     width:135px;
@@ -735,21 +667,13 @@ select{
     margin:5px auto 18px;
   }
 
-  .title{
-    font-size:26px;
-  }
+  .title{font-size:26px}
 
-  .sub{
-    font-size:13px;
-  }
+  .sub{font-size:13px}
 
-  .hero h2{
-    font-size:25px;
-  }
+  .hero h2{font-size:25px}
 
-  .hero p{
-    font-size:15px;
-  }
+  .hero p{font-size:15px}
 
   .section{
     padding:20px 12px;
@@ -762,13 +686,7 @@ select{
     grid-template-columns:1fr;
   }
 
-  .video-card iframe{
-    min-height:200px;
-  }
-
-  /* =====================
-     JIO STYLE BOTTOM BAR
-  ====================== */
+  .video-card iframe{min-height:200px}
 
   .mobile-nav{
     position:fixed;
@@ -799,9 +717,7 @@ select{
     cursor:pointer;
   }
 
-  .mobile-nav i{
-    font-size:21px;
-  }
+  .mobile-nav i{font-size:21px}
 
   .mobile-nav span{
     font-size:10px;
@@ -821,9 +737,7 @@ select{
     color:#39ff72;
   }
 
-  footer{
-    margin-bottom:0;
-  }
+  footer{margin-bottom:0}
 
   .modal-box{
     width:96%;
@@ -836,34 +750,20 @@ select{
     align-items:flex-start;
   }
 
-  .item > div:last-child{
-    width:100%;
-  }
+  .item > div:last-child{width:100%}
 
-  .item button{
-    margin-top:4px;
-  }
+  .item button{margin-top:4px}
 }
-
-/* Small phones */
 
 @media(max-width:380px){
 
-  .mobile-nav{
-    height:64px;
-  }
+  .mobile-nav{height:64px}
 
-  .mobile-nav i{
-    font-size:18px;
-  }
+  .mobile-nav i{font-size:18px}
 
-  .mobile-nav span{
-    font-size:9px;
-  }
+  .mobile-nav span{font-size:9px}
 
-  .brand{
-    font-size:13px;
-  }
+  .brand{font-size:13px}
 
   .center-logo{
     width:120px;
@@ -875,9 +775,7 @@ select{
 
 <body>
 
-<!-- =========================
-     LOADER
-========================= -->
+<!-- LOADER -->
 
 <section id="loader">
 
@@ -915,52 +813,30 @@ select{
 </section>
 
 
-<!-- =========================
-     WEBSITE
-========================= -->
-
 <div id="site">
 
 <header>
 
   <div class="nav">
 
-    <a
-      class="brand"
-      href="#home"
-      data-page="home"
-    >
+    <a class="brand" href="#home" data-page="home">
       <img src="logo.png" alt="Hexca Web">
       <span>HEXCA WEB</span>
     </a>
 
-    <!-- DESKTOP MENU -->
-
     <nav class="navlinks">
 
-      <a href="#home" data-page="home">
-        HOME
-      </a>
+      <a href="#home" data-page="home">HOME</a>
 
-      <a href="#social" data-page="social">
-        SOCIAL
-      </a>
+      <a href="#social" data-page="social">SOCIAL</a>
 
-      <a href="#apk" data-page="apk">
-        APK LINKS
-      </a>
+      <a href="#apk" data-page="apk">APK LINKS</a>
 
-      <a href="#about" data-page="about">
-        ABOUT
-      </a>
+      <a href="#about" data-page="about">ABOUT</a>
 
-      <a href="#privacy" data-page="privacy">
-        PRIVACY
-      </a>
+      <a href="#privacy" data-page="privacy">PRIVACY</a>
 
-      <a href="#bio" data-page="bio">
-        MY BIO
-      </a>
+      <a href="#bio" data-page="bio">MY BIO</a>
 
     </nav>
 
@@ -969,24 +845,13 @@ select{
 </header>
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main>
 
 <!-- HOME -->
 
-<section
-  id="page-home"
-  class="page active"
->
+<section id="page-home" class="page active">
 
   <div class="container">
-
-    <!--
-      5 CLICK ADMIN LOGO
-    -->
 
     <img
       id="homeAdminLogo"
@@ -998,9 +863,7 @@ select{
 
     <div class="hero">
 
-      <h2>
-        Welcome to Hexca Web
-      </h2>
+      <h2>Welcome to Hexca Web</h2>
 
       <p>
         Join our community for tutorials,
@@ -1014,17 +877,11 @@ select{
 
       <ul class="checks">
 
-        <li>
-          Completely safe and free!
-        </li>
+        <li>Completely safe and free!</li>
 
-        <li>
-          Share with your friends!
-        </li>
+        <li>Share with your friends!</li>
 
-        <li>
-          Learn, explore and stay updated.
-        </li>
+        <li>Learn, explore and stay updated.</li>
 
       </ul>
 
@@ -1038,10 +895,7 @@ select{
         Contact Telegram
       </a>
 
-      <button
-        class="btn"
-        onclick="openBio()"
-      >
+      <button class="btn" onclick="openBio()">
         <i class="fa-solid fa-id-card"></i>
         My Bio
       </button>
@@ -1049,18 +903,13 @@ select{
     </div>
 
 
-    <!-- YOUTUBE -->
-
     <section class="section">
 
       <div class="section-title">
         MY YOUTUBE VIDEOS
       </div>
 
-      <div
-        id="videos"
-        class="video-grid"
-      ></div>
+      <div id="videos" class="video-grid"></div>
 
       <p
         id="noVideos"
@@ -1079,33 +928,19 @@ select{
 
 <!-- SOCIAL -->
 
-<section
-  id="page-social"
-  class="page"
->
+<section id="page-social" class="page">
 
   <div class="container">
 
-    <img
-      class="center-logo"
-      src="logo.png"
-      alt="Hexca Web"
-    >
+    <img class="center-logo" src="logo.png" alt="Hexca Web">
 
-    <h1 class="title">
-      SOCIAL MEDIA
-    </h1>
+    <h1 class="title">SOCIAL MEDIA</h1>
 
-    <p class="sub">
-      Connect with Hexca Web
-    </p>
+    <p class="sub">Connect with Hexca Web</p>
 
     <section class="section">
 
-      <div
-        id="socialGrid"
-        class="social-grid"
-      ></div>
+      <div id="socialGrid" class="social-grid"></div>
 
     </section>
 
@@ -1116,33 +951,19 @@ select{
 
 <!-- APK -->
 
-<section
-  id="page-apk"
-  class="page"
->
+<section id="page-apk" class="page">
 
   <div class="container">
 
-    <img
-      class="center-logo"
-      src="logo.png"
-      alt="Hexca Web"
-    >
+    <img class="center-logo" src="logo.png" alt="Hexca Web">
 
-    <h1 class="title">
-      APK LINKS
-    </h1>
+    <h1 class="title">APK LINKS</h1>
 
-    <p class="sub">
-      Available app links
-    </p>
+    <p class="sub">Available app links</p>
 
     <section class="section">
 
-      <div
-        id="apkGrid"
-        class="apk-grid"
-      ></div>
+      <div id="apkGrid" class="apk-grid"></div>
 
     </section>
 
@@ -1153,30 +974,19 @@ select{
 
 <!-- ABOUT -->
 
-<section
-  id="page-about"
-  class="page"
->
+<section id="page-about" class="page">
 
   <div class="container">
 
-    <img
-      class="center-logo"
-      src="logo.png"
-      alt="Hexca Web"
-    >
+    <img class="center-logo" src="logo.png" alt="Hexca Web">
 
-    <h1 class="title">
-      ABOUT
-    </h1>
+    <h1 class="title">ABOUT</h1>
 
     <section class="section">
 
       <div class="text-card">
 
-        <h3>
-          HEXCA WEB COMMUNITY
-        </h3>
+        <h3>HEXCA WEB COMMUNITY</h3>
 
         <p>
           Welcome to Hexca Web. This website provides
@@ -1197,43 +1007,31 @@ select{
 
 <!-- PRIVACY -->
 
-<section
-  id="page-privacy"
-  class="page"
->
+<section id="page-privacy" class="page">
 
   <div class="container">
 
-    <img
-      class="center-logo"
-      src="logo.png"
-      alt="Hexca Web"
-    >
+    <img class="center-logo" src="logo.png" alt="Hexca Web">
 
-    <h1 class="title">
-      PRIVACY POLICY
-    </h1>
+    <h1 class="title">PRIVACY POLICY</h1>
 
     <section class="section">
 
       <div class="text-card">
 
-        <h3>
-          PRIVACY
-        </h3>
+        <h3>PRIVACY</h3>
 
         <p>
-          This static website does not require an account.
-          External services have their own privacy policies.
-          Do not submit passwords or sensitive personal
-          information here.
+          This website uses Firebase to store
+          community content such as social links,
+          APK links, videos and bio information.
+          Do not submit passwords or sensitive
+          personal information through public forms.
         </p>
 
         <br>
 
-        <h3>
-          DISCLAIMER
-        </h3>
+        <h3>DISCLAIMER</h3>
 
         <p>
           Content is educational and informational.
@@ -1251,12 +1049,9 @@ select{
 </section>
 
 
-<!-- MY BIO PAGE -->
+<!-- BIO -->
 
-<section
-  id="page-bio"
-  class="page"
->
+<section id="page-bio" class="page">
 
   <div class="container">
 
@@ -1267,13 +1062,9 @@ select{
       alt="Hexca Web"
     >
 
-    <h1 class="title">
-      MY BIO
-    </h1>
+    <h1 class="title">MY BIO</h1>
 
-    <p class="sub">
-      About me
-    </p>
+    <p class="sub">About me</p>
 
     <section class="section">
 
@@ -1302,10 +1093,6 @@ select{
 
 </main>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -1344,52 +1131,31 @@ select{
 </div>
 
 
-<!-- =========================
-     MOBILE BOTTOM NAV
-========================= -->
+<!-- MOBILE NAV -->
 
 <nav class="mobile-nav">
 
-  <a
-    href="#home"
-    data-page="home"
-    class="mobile-link"
-  >
+  <a href="#home" data-page="home" class="mobile-link">
     <i class="fa-solid fa-house"></i>
     <span>HOME</span>
   </a>
 
-  <a
-    href="#social"
-    data-page="social"
-    class="mobile-link"
-  >
+  <a href="#social" data-page="social" class="mobile-link">
     <i class="fa-solid fa-users"></i>
     <span>SOCIAL</span>
   </a>
 
-  <a
-    href="#apk"
-    data-page="apk"
-    class="mobile-link"
-  >
+  <a href="#apk" data-page="apk" class="mobile-link">
     <i class="fa-solid fa-download"></i>
     <span>APK</span>
   </a>
 
-  <a
-    href="#bio"
-    data-page="bio"
-    class="mobile-link"
-  >
+  <a href="#bio" data-page="bio" class="mobile-link">
     <i class="fa-solid fa-id-card"></i>
     <span>MY BIO</span>
   </a>
 
-  <button
-    id="moreButton"
-    type="button"
-  >
+  <button id="moreButton" type="button">
     <i class="fa-solid fa-ellipsis"></i>
     <span>MORE</span>
   </button>
@@ -1397,33 +1163,17 @@ select{
 </nav>
 
 
-<!-- MORE OVERLAY -->
-
-<div
-  id="moreOverlay"
-  class="more-overlay"
-></div>
+<div id="moreOverlay" class="more-overlay"></div>
 
 
-<!-- MORE MENU -->
+<div id="moreMenu" class="more-menu">
 
-<div
-  id="moreMenu"
-  class="more-menu"
->
-
-  <a
-    href="#about"
-    data-page="about"
-  >
+  <a href="#about" data-page="about">
     <i class="fa-solid fa-circle-info"></i>
     ABOUT
   </a>
 
-  <a
-    href="#privacy"
-    data-page="privacy"
-  >
+  <a href="#privacy" data-page="privacy">
     <i class="fa-solid fa-shield-halved"></i>
     PRIVACY
   </a>
@@ -1431,29 +1181,17 @@ select{
 </div>
 
 
-<!-- =========================
-     BIO MODAL
-========================= -->
+<!-- BIO MODAL -->
 
-<div
-  id="bioModal"
-  class="modal"
->
+<div id="bioModal" class="modal">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        MY BIO
-      </h2>
+      <h2>MY BIO</h2>
 
-      <button
-        class="close"
-        onclick="closeBio()"
-      >
-        ×
-      </button>
+      <button class="close" onclick="closeBio()">×</button>
 
     </div>
 
@@ -1465,10 +1203,7 @@ select{
         alt="Hexca Web"
       >
 
-      <div
-        class="bio-name"
-        id="bioName"
-      ></div>
+      <div class="bio-name" id="bioName"></div>
 
       <div id="bioRows"></div>
 
@@ -1479,98 +1214,111 @@ select{
 </div>
 
 
-<!-- =========================
-     ADMIN PANEL
-========================= -->
+<!-- ADMIN LOGIN -->
 
-<div
-  id="adminModal"
-  class="modal"
->
+<div id="loginModal" class="modal">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        HEXCA WEB ADMIN PANEL
-      </h2>
+      <h2>ADMIN LOGIN</h2>
 
-      <button
-        class="close"
-        onclick="closeAdmin()"
-      >
-        ×
-      </button>
+      <button class="close" onclick="closeLogin()">×</button>
+
+    </div>
+
+    <p class="note">
+      Firebase Authentication is used for secure admin login.
+    </p>
+
+    <label>Email</label>
+
+    <input
+      id="loginEmail"
+      type="email"
+      placeholder="Admin email"
+      autocomplete="username"
+    >
+
+    <label>Password</label>
+
+    <input
+      id="loginPassword"
+      type="password"
+      placeholder="Admin password"
+      autocomplete="current-password"
+    >
+
+    <button
+      class="btn"
+      id="loginButton"
+      onclick="loginAdmin()"
+    >
+      LOGIN
+    </button>
+
+    <p
+      id="loginStatus"
+      class="note"
+    ></p>
+
+  </div>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2>HEXCA WEB ADMIN PANEL</h2>
+
+      <button class="close" onclick="closeAdmin()">×</button>
 
     </div>
 
     <p class="note">
 
-      <b>Static-site note:</b>
-      edits are saved in this browser only.
-      GitHub Pages cannot securely publish database
-      changes from a client-side password panel.
+      <b>Firebase connected:</b>
+      changes are saved to Firestore and
+      sync live for visitors.
 
     </p>
 
 
-    <!-- ADMIN TABS -->
-
     <div class="tabs">
 
-      <button onclick="tab('sA')">
-        Social
-      </button>
+      <button onclick="tab('sA')">Social</button>
 
-      <button onclick="tab('aA')">
-        APK
-      </button>
+      <button onclick="tab('aA')">APK</button>
 
-      <button onclick="tab('vA')">
-        Videos
-      </button>
+      <button onclick="tab('vA')">Videos</button>
 
-      <button onclick="tab('bA')">
-        Bio
-      </button>
+      <button onclick="tab('bA')">Bio</button>
 
     </div>
 
 
-    <!-- SOCIAL ADMIN -->
+    <!-- SOCIAL -->
 
-    <div
-      id="sA"
-      class="admin-section active"
-    >
+    <div id="sA" class="admin-section active">
 
-      <input
-        id="si"
-        type="hidden"
-      >
+      <input id="si" type="hidden">
 
-      <label>
-        Name
-      </label>
+      <label>Name</label>
 
-      <input
-        id="sn"
-        placeholder="YouTube"
-      >
+      <input id="sn" placeholder="YouTube">
 
-      <label>
-        URL
-      </label>
+      <label>URL</label>
 
-      <input
-        id="su"
-        placeholder="https://..."
-      >
+      <input id="su" placeholder="https://...">
 
-      <label>
-        Icon
-      </label>
+      <label>Icon</label>
 
       <select id="sx">
 
@@ -1600,182 +1348,109 @@ select{
 
       </select>
 
-      <button
-        class="btn"
-        onclick="saveSocial()"
-      >
+      <button class="btn" onclick="saveSocial()">
         SAVE SOCIAL
       </button>
 
-      <div
-        id="sl"
-        class="list"
-      ></div>
+      <div id="sl" class="list"></div>
 
     </div>
 
 
-    <!-- APK ADMIN -->
+    <!-- APK -->
 
-    <div
-      id="aA"
-      class="admin-section"
-    >
+    <div id="aA" class="admin-section">
 
-      <input
-        id="ai"
-        type="hidden"
-      >
+      <input id="ai" type="hidden">
 
-      <label>
-        APK name
-      </label>
+      <label>APK name</label>
 
       <input id="an">
 
-      <label>
-        Link
-      </label>
+      <label>Link</label>
 
       <input id="au">
 
-      <label>
-        Description
-      </label>
+      <label>Description</label>
 
-      <textarea
-        id="ad"
-        rows="3"
-      ></textarea>
+      <textarea id="ad" rows="3"></textarea>
 
-      <button
-        class="btn"
-        onclick="saveApk()"
-      >
+      <button class="btn" onclick="saveApk()">
         SAVE APK
       </button>
 
-      <div
-        id="al"
-        class="list"
-      ></div>
+      <div id="al" class="list"></div>
 
     </div>
 
 
-    <!-- VIDEO ADMIN -->
+    <!-- VIDEOS -->
 
-    <div
-      id="vA"
-      class="admin-section"
-    >
+    <div id="vA" class="admin-section">
 
-      <input
-        id="vi"
-        type="hidden"
-      >
+      <input id="vi" type="hidden">
 
-      <label>
-        Video title
-      </label>
+      <label>Video title</label>
 
       <input id="vt">
 
-      <label>
-        YouTube video URL
-      </label>
+      <label>YouTube video URL</label>
 
       <input
         id="vu"
         placeholder="https://www.youtube.com/watch?v=..."
       >
 
-      <button
-        class="btn"
-        onclick="saveVideo()"
-      >
+      <button class="btn" onclick="saveVideo()">
         SAVE VIDEO
       </button>
 
       <p class="note">
-
-        This version lets you add/edit/delete
-        video URLs and plays them on the Home page.
-        Automatically discovering the latest channel
-        uploads requires a YouTube API/backend.
-
+        Add/edit/delete YouTube video URLs.
+        Videos appear on the Home page automatically.
       </p>
 
-      <div
-        id="vl"
-        class="list"
-      ></div>
+      <div id="vl" class="list"></div>
 
     </div>
 
 
-    <!-- BIO ADMIN -->
+    <!-- BIO -->
 
-    <div
-      id="bA"
-      class="admin-section"
-    >
+    <div id="bA" class="admin-section">
 
-      <label>
-        Name
-      </label>
+      <label>Name</label>
 
       <input id="bn">
 
-      <label>
-        Age
-      </label>
+      <label>Age</label>
 
       <input id="ba">
 
-      <label>
-        Education
-      </label>
+      <label>Education</label>
 
       <input id="be">
 
-      <label>
-        Location
-      </label>
+      <label>Location</label>
 
       <input id="bl">
 
-      <label>
-        Introduction
-      </label>
+      <label>Introduction</label>
 
-      <textarea
-        id="bi"
-        rows="3"
-      ></textarea>
+      <textarea id="bi" rows="3"></textarea>
 
-      <button
-        class="btn"
-        onclick="saveBio()"
-      >
+      <button class="btn" onclick="saveBio()">
         SAVE BIO
       </button>
 
       <p class="note">
-
-        For privacy, avoid publishing an exact home
-        address. Keep location broad unless you are
-        sure you want it public.
-
+        Avoid publishing an exact home address.
       </p>
 
     </div>
 
 
-    <button
-      class="btn"
-      onclick="logoutAdmin()"
-    >
+    <button class="btn" onclick="logoutAdmin()">
       LOGOUT
     </button>
 
@@ -1784,34 +1459,103 @@ select{
 </div>
 
 
-<script>
+<!-- =========================================================
+     FIREBASE + WEBSITE SCRIPT
+========================================================= -->
 
-/* =========================================
+<script type="module">
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  doc,
+  addDoc,
+  setDoc,
+  deleteDoc,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyDUDME-HEfvjaNmW1KCyHWe0_JrQTGi63k",
+
+  authDomain:
+    "hw-my-website.firebaseapp.com",
+
+  databaseURL:
+    "https://hw-my-website-default-rtdb.firebaseio.com",
+
+  projectId:
+    "hw-my-website",
+
+  storageBucket:
+    "hw-my-website.firebasestorage.app",
+
+  messagingSenderId:
+    "332933793801",
+
+  appId:
+    "1:332933793801:web:d18b8f9263aaaf986d90d8"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+/* =========================================================
+   ADMIN UID
+========================================================= */
+
+const ADMIN_UID =
+  "N1pfFImcZyafXHlI2ar60tmRYjl1";
+
+
+/* =========================================================
    DEFAULT DATA
-========================================= */
+========================================================= */
 
-const PASS='HWADMIN123';
-
-const defaults={
+const defaults = {
 
   social:[
 
     {
-      name:'YouTube',
-      url:'https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn',
-      icon:'fa-brands fa-youtube'
+      name:"YouTube",
+      url:"https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn",
+      icon:"fa-brands fa-youtube"
     },
 
     {
-      name:'Telegram',
-      url:'https://t.me/hexcaweb',
-      icon:'fa-brands fa-telegram'
+      name:"Telegram",
+      url:"https://t.me/hexcaweb",
+      icon:"fa-brands fa-telegram"
     },
 
     {
-      name:'WhatsApp',
-      url:'https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y',
-      icon:'fa-brands fa-whatsapp'
+      name:"WhatsApp",
+      url:"https://whatsapp.com/channel/0029VbCkGkM7j6g2U3Vu0z3y",
+      icon:"fa-brands fa-whatsapp"
     }
 
   ],
@@ -1822,273 +1566,263 @@ const defaults={
 
   bio:{
 
-    name:'SAMIM AKTAR (SSK)',
+    name:"SAMIM AKTAR (SSK)",
 
-    age:'',
+    age:"",
 
-    education:'B.A. — Currently pursuing / final stage',
+    education:
+      "B.A. — Currently pursuing / final stage",
 
-    location:'West Bengal, India',
+    location:
+      "West Bengal, India",
 
-    intro:'Assalamualaikum brother. Welcome to my personal bio.'
+    intro:
+      "Assalamualaikum brother. Welcome to my personal bio."
 
   }
 
 };
 
 
-/* =========================================
-   DATA
-========================================= */
+/* =========================================================
+   LOCAL APP DATA
+========================================================= */
 
-function data(){
+let appData = {
 
-  let x;
+  social:[...defaults.social],
 
-  try{
-    x=JSON.parse(localStorage.hexcaData||'null');
-  }catch(e){
-    x=null;
-  }
+  apk:[],
 
-  if(!x){
-    return defaults;
-  }
+  videos:[],
 
-  return{
+  bio:{...defaults.bio}
 
-    ...defaults,
-
-    ...x,
-
-    bio:{
-      ...defaults.bio,
-      ...(x.bio||{})
-    }
-
-  };
-
-}
+};
 
 
-function save(d){
+/* =========================================================
+   HELPERS
+========================================================= */
 
-  localStorage.hexcaData=
-    JSON.stringify(d);
+const $ = id =>
+  document.getElementById(id);
 
-}
-
-
-/* =========================================
-   ESCAPE
-========================================= */
 
 function esc(s){
 
-  return String(s??'').replace(
+  return String(s ?? "").replace(
     /[&<>"']/g,
-    m=>({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#039;'
+    m => ({
+
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+
     }[m])
   );
 
 }
 
 
-function safe(s){
+function safeUrl(url){
 
-  return String(s??'')
-    .replace(/"/g,'&quot;');
+  try{
+
+    const u =
+      new URL(String(url).trim());
+
+    if(
+      u.protocol !== "https:" &&
+      u.protocol !== "http:"
+    ){
+      return "";
+    }
+
+    return u.href;
+
+  }catch(e){
+
+    return "";
+
+  }
 
 }
 
 
-/* =========================================
-   YOUTUBE ID
-========================================= */
+function vid(url){
 
-function vid(u){
+  const s =
+    String(url || "").trim();
 
-  let m=String(u).match(
-    /(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{6,})/
-  );
+  let m =
+    s.match(
+      /(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{6,})/
+    );
 
-  return m?m[1]:'';
+  return m ? m[1] : "";
 
 }
 
 
-/* =========================================
+/* =========================================================
    RENDER
-========================================= */
+========================================================= */
 
 function render(){
 
-  let d=data();
+  const d = appData;
 
 
   /* SOCIAL */
 
-  socialGrid.innerHTML=
+  $("socialGrid").innerHTML =
+    d.social.map(x => {
 
-    d.social.map(x=>`
+      const url =
+        safeUrl(x.url);
 
-      <a
-        class="social"
-        href="${safe(x.url)}"
-        target="_blank"
-        rel="noopener"
-      >
+      if(!url) return "";
 
-        <div class="icon">
+      return `
 
-          <i class="${safe(x.icon)}"></i>
+        <a
+          class="social"
+          href="${esc(url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
 
-        </div>
+          <div class="icon">
 
-        <span>
-          ${esc(x.name)}
-        </span>
+            <i class="${esc(x.icon)}"></i>
 
-        <small>
-          Tap to open
-        </small>
+          </div>
 
-      </a>
+          <span>
+            ${esc(x.name)}
+          </span>
 
-    `).join('');
+          <small>
+            Tap to open
+          </small>
+
+        </a>
+
+      `;
+
+    }).join("");
 
 
   /* APK */
 
-  apkGrid.innerHTML=
+  if(d.apk.length){
 
-    d.apk.length?
+    $("apkGrid").innerHTML =
+      d.apk.map(x => {
 
-      d.apk.map(x=>`
+        const url =
+          safeUrl(x.url);
 
-        <div class="apk-card">
+        if(!url) return "";
 
-          <h3>
-            ${esc(x.name)}
-          </h3>
+        return `
 
-          <p>
-            ${esc(x.desc||'App link')}
-          </p>
+          <div class="apk-card">
 
-          <a
-            class="btn"
-            href="${safe(x.url)}"
-            target="_blank"
-            rel="noopener"
-          >
+            <h3>
+              ${esc(x.name)}
+            </h3>
 
-            <i class="fa-solid fa-link"></i>
+            <p>
+              ${esc(x.desc || "App link")}
+            </p>
 
-            Open Link
+            <a
+              class="btn"
+              href="${esc(url)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
 
-          </a>
+              <i class="fa-solid fa-link"></i>
 
-        </div>
+              Open Link
 
-      `).join('')
+            </a>
 
-      :
+          </div>
 
+        `;
+
+      }).join("");
+
+  }else{
+
+    $("apkGrid").innerHTML =
       '<p class="note">No APK links added yet.</p>';
+
+  }
 
 
   /* VIDEOS */
 
-  videos.innerHTML=
+  $("videos").innerHTML =
+    d.videos.map(x => {
 
-    d.videos.map(x=>`
+      const id =
+        vid(x.url);
 
-      <div class="video-card">
+      if(!id) return "";
 
-        <iframe
-          src="https://www.youtube.com/embed/${vid(x.url)}"
-          title="${esc(x.title)}"
-          loading="lazy"
-          allowfullscreen
-        ></iframe>
+      return `
 
-        <div class="video-title">
-          ${esc(x.title)}
+        <div class="video-card">
+
+          <iframe
+            src="https://www.youtube.com/embed/${esc(id)}"
+            title="${esc(x.title)}"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+
+          <div class="video-title">
+            ${esc(x.title)}
+          </div>
+
         </div>
 
-      </div>
+      `;
 
-    `).join('');
-
-
-  noVideos.style.display=
-    d.videos.length?'none':'block';
+    }).join("");
 
 
-  /* BIO MODAL */
-
-  bioName.textContent=
-    d.bio.name;
+  $("noVideos").style.display =
+    d.videos.length ? "none" : "block";
 
 
-  bioRows.innerHTML=`
+  /* BIO */
 
-    <div class="bio-row">
-      ${esc(d.bio.intro)}
-    </div>
-
-    <div class="bio-row">
-      <b>AGE:</b>
-      ${esc(d.bio.age||'—')}
-    </div>
-
-    <div class="bio-row">
-      <b>EDUCATION:</b>
-      ${esc(d.bio.education)}
-    </div>
-
-    <div class="bio-row">
-      <b>LOCATION:</b>
-      ${esc(d.bio.location)}
-    </div>
-
-  `;
+  const b =
+    d.bio || defaults.bio;
 
 
-  /* BIO PAGE */
-
-  bioPageName.textContent=
-    d.bio.name;
+  $("bioName").textContent =
+    b.name || "";
 
 
-  bioPageRows.innerHTML=`
+  $("bioRows").innerHTML =
+    bioHTML(b);
 
-    <div class="bio-row">
-      ${esc(d.bio.intro)}
-    </div>
 
-    <div class="bio-row">
-      <b>AGE:</b>
-      ${esc(d.bio.age||'—')}
-    </div>
+  $("bioPageName").textContent =
+    b.name || "";
 
-    <div class="bio-row">
-      <b>EDUCATION:</b>
-      ${esc(d.bio.education)}
-    </div>
 
-    <div class="bio-row">
-      <b>LOCATION:</b>
-      ${esc(d.bio.location)}
-    </div>
-
-  `;
+  $("bioPageRows").innerHTML =
+    bioHTML(b);
 
 
   lists();
@@ -2096,42 +1830,66 @@ function render(){
 }
 
 
-/* =========================================
+function bioHTML(b){
+
+  return `
+
+    <div class="bio-row">
+      ${esc(b.intro || "")}
+    </div>
+
+    <div class="bio-row">
+      <b>AGE:</b>
+      ${esc(b.age || "—")}
+    </div>
+
+    <div class="bio-row">
+      <b>EDUCATION:</b>
+      ${esc(b.education || "—")}
+    </div>
+
+    <div class="bio-row">
+      <b>LOCATION:</b>
+      ${esc(b.location || "—")}
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
    ADMIN LISTS
-========================================= */
+========================================================= */
 
 function lists(){
 
-  let d=data();
-
-
-  sl.innerHTML=
-
-    d.social.map((x,i)=>`
+  $("sl").innerHTML =
+    appData.social.map(x => `
 
       <div class="item">
 
         <div>
 
-          <b>
-            ${esc(x.name)}
-          </b>
+          <b>${esc(x.name)}</b>
 
           <br>
 
-          <small>
-            ${esc(x.url)}
-          </small>
+          <small>${esc(x.url)}</small>
 
         </div>
 
         <div>
 
-          <button onclick="es(${i})">
+          <button
+            onclick="editSocial('${esc(x.id)}')"
+          >
             Edit
           </button>
 
-          <button onclick="del('social',${i})">
+          <button
+            onclick="deleteItem('social','${esc(x.id)}')"
+          >
             Delete
           </button>
 
@@ -2139,36 +1897,35 @@ function lists(){
 
       </div>
 
-    `).join('');
+    `).join("");
 
 
-  al.innerHTML=
-
-    d.apk.map((x,i)=>`
+  $("al").innerHTML =
+    appData.apk.map(x => `
 
       <div class="item">
 
         <div>
 
-          <b>
-            ${esc(x.name)}
-          </b>
+          <b>${esc(x.name)}</b>
 
           <br>
 
-          <small>
-            ${esc(x.url)}
-          </small>
+          <small>${esc(x.url)}</small>
 
         </div>
 
         <div>
 
-          <button onclick="ea(${i})">
+          <button
+            onclick="editApk('${esc(x.id)}')"
+          >
             Edit
           </button>
 
-          <button onclick="del('apk',${i})">
+          <button
+            onclick="deleteItem('apk','${esc(x.id)}')"
+          >
             Delete
           </button>
 
@@ -2176,36 +1933,35 @@ function lists(){
 
       </div>
 
-    `).join('');
+    `).join("");
 
 
-  vl.innerHTML=
-
-    d.videos.map((x,i)=>`
+  $("vl").innerHTML =
+    appData.videos.map(x => `
 
       <div class="item">
 
         <div>
 
-          <b>
-            ${esc(x.title)}
-          </b>
+          <b>${esc(x.title)}</b>
 
           <br>
 
-          <small>
-            ${esc(x.url)}
-          </small>
+          <small>${esc(x.url)}</small>
 
         </div>
 
         <div>
 
-          <button onclick="ev(${i})">
+          <button
+            onclick="editVideo('${esc(x.id)}')"
+          >
             Edit
           </button>
 
-          <button onclick="del('videos',${i})">
+          <button
+            onclick="deleteItem('videos','${esc(x.id)}')"
+          >
             Delete
           </button>
 
@@ -2213,388 +1969,727 @@ function lists(){
 
       </div>
 
-    `).join('');
+    `).join("");
 
 }
 
 
-/* =========================================
+/* =========================================================
    SOCIAL SAVE
-========================================= */
+========================================================= */
 
-function saveSocial(){
+window.saveSocial = async function(){
 
-  let d=data();
+  if(!isAdmin()){
 
-  let i=si.value;
+    alert("Admin login required.");
 
-  let o={
-    name:sn.value.trim(),
-    url:su.value.trim(),
-    icon:sx.value
-  };
+    return;
 
-  if(!o.name||!o.url){
+  }
 
-    return alert(
-      'Name and URL required'
+
+  const id =
+    $("si").value.trim();
+
+  const name =
+    $("sn").value.trim();
+
+  const url =
+    safeUrl($("su").value);
+
+  const icon =
+    $("sx").value;
+
+
+  if(!name || !url){
+
+    alert("Valid name and URL required.");
+
+    return;
+
+  }
+
+
+  try{
+
+    const data = {
+
+      name,
+      url,
+      icon,
+      updatedAt:Date.now()
+
+    };
+
+
+    if(id){
+
+      await setDoc(
+        doc(db,"social",id),
+        data,
+        {merge:true}
+      );
+
+    }else{
+
+      await addDoc(
+        collection(db,"social"),
+        data
+      );
+
+    }
+
+
+    $("si").value="";
+    $("sn").value="";
+    $("su").value="";
+
+
+    alert("Social saved.");
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "Save failed: " + e.message
     );
 
   }
 
-  i===''?
-    d.social.push(o):
-    d.social[i]=o;
-
-  save(d);
-
-  si.value='';
-  sn.value='';
-  su.value='';
-
-  render();
-
-}
+};
 
 
-function es(i){
+window.editSocial = function(id){
 
-  let x=data().social[i];
+  const x =
+    appData.social.find(
+      item => item.id === id
+    );
 
-  si.value=i;
-  sn.value=x.name;
-  su.value=x.url;
-  sx.value=x.icon;
-
-}
+  if(!x) return;
 
 
-/* =========================================
+  $("si").value=id;
+  $("sn").value=x.name;
+  $("su").value=x.url;
+  $("sx").value=x.icon;
+
+};
+
+
+/* =========================================================
    APK SAVE
-========================================= */
+========================================================= */
 
-function saveApk(){
+window.saveApk = async function(){
 
-  let d=data();
+  if(!isAdmin()){
 
-  let i=ai.value;
+    alert("Admin login required.");
 
-  let o={
-    name:an.value.trim(),
-    url:au.value.trim(),
-    desc:ad.value.trim()
-  };
+    return;
 
-  if(!o.name||!o.url){
+  }
 
-    return alert(
-      'Name and link required'
+
+  const id =
+    $("ai").value.trim();
+
+  const name =
+    $("an").value.trim();
+
+  const url =
+    safeUrl($("au").value);
+
+  const desc =
+    $("ad").value.trim();
+
+
+  if(!name || !url){
+
+    alert("Name and valid link required.");
+
+    return;
+
+  }
+
+
+  try{
+
+    const data = {
+
+      name,
+      url,
+      desc,
+      updatedAt:Date.now()
+
+    };
+
+
+    if(id){
+
+      await setDoc(
+        doc(db,"apk",id),
+        data,
+        {merge:true}
+      );
+
+    }else{
+
+      await addDoc(
+        collection(db,"apk"),
+        data
+      );
+
+    }
+
+
+    $("ai").value="";
+    $("an").value="";
+    $("au").value="";
+    $("ad").value="";
+
+
+    alert("APK saved.");
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "Save failed: " + e.message
     );
 
   }
 
-  i===''?
-    d.apk.push(o):
-    d.apk[i]=o;
-
-  save(d);
-
-  ai.value='';
-  an.value='';
-  au.value='';
-  ad.value='';
-
-  render();
-
-}
+};
 
 
-function ea(i){
+window.editApk = function(id){
 
-  let x=data().apk[i];
+  const x =
+    appData.apk.find(
+      item => item.id === id
+    );
 
-  ai.value=i;
-  an.value=x.name;
-  au.value=x.url;
-  ad.value=x.desc||'';
-
-}
+  if(!x) return;
 
 
-/* =========================================
+  $("ai").value=id;
+  $("an").value=x.name;
+  $("au").value=x.url;
+  $("ad").value=x.desc || "";
+
+};
+
+
+/* =========================================================
    VIDEO SAVE
-========================================= */
+========================================================= */
 
-function saveVideo(){
+window.saveVideo = async function(){
 
-  let d=data();
+  if(!isAdmin()){
 
-  let i=vi.value;
+    alert("Admin login required.");
 
-  let o={
-    title:vt.value.trim(),
-    url:vu.value.trim()
-  };
+    return;
 
-  if(!o.title||!vid(o.url)){
+  }
 
-    return alert(
-      'Valid YouTube video URL required'
+
+  const id =
+    $("vi").value.trim();
+
+  const title =
+    $("vt").value.trim();
+
+  const url =
+    safeUrl($("vu").value);
+
+
+  if(!title || !vid(url)){
+
+    alert(
+      "Valid YouTube video URL required."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const data = {
+
+      title,
+      url,
+      updatedAt:Date.now()
+
+    };
+
+
+    if(id){
+
+      await setDoc(
+        doc(db,"videos",id),
+        data,
+        {merge:true}
+      );
+
+    }else{
+
+      await addDoc(
+        collection(db,"videos"),
+        data
+      );
+
+    }
+
+
+    $("vi").value="";
+    $("vt").value="";
+    $("vu").value="";
+
+
+    alert("Video saved.");
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "Save failed: " + e.message
     );
 
   }
 
-  i===''?
-    d.videos.push(o):
-    d.videos[i]=o;
-
-  save(d);
-
-  vi.value='';
-  vt.value='';
-  vu.value='';
-
-  render();
-
-}
+};
 
 
-function ev(i){
+window.editVideo = function(id){
 
-  let x=data().videos[i];
+  const x =
+    appData.videos.find(
+      item => item.id === id
+    );
 
-  vi.value=i;
-  vt.value=x.title;
-  vu.value=x.url;
-
-}
+  if(!x) return;
 
 
-/* =========================================
+  $("vi").value=id;
+  $("vt").value=x.title;
+  $("vu").value=x.url;
+
+};
+
+
+/* =========================================================
    DELETE
-========================================= */
+========================================================= */
 
-function del(k,i){
+window.deleteItem = async function(
+  collectionName,
+  id
+){
 
-  if(
-    confirm(
-      'Delete this item?'
-    )
-  ){
+  if(!isAdmin()){
 
-    let d=data();
+    alert("Admin login required.");
 
-    d[k].splice(i,1);
-
-    save(d);
-
-    render();
+    return;
 
   }
 
-}
+
+  if(!confirm("Delete this item?")){
+
+    return;
+
+  }
 
 
-/* =========================================
+  try{
+
+    await deleteDoc(
+      doc(db,collectionName,id)
+    );
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "Delete failed: " + e.message
+    );
+
+  }
+
+};
+
+
+/* =========================================================
    BIO SAVE
-========================================= */
+========================================================= */
 
-function saveBio(){
+window.saveBio = async function(){
 
-  let d=data();
+  if(!isAdmin()){
 
-  d.bio={
+    alert("Admin login required.");
 
-    name:bn.value.trim(),
+    return;
 
-    age:ba.value.trim(),
+  }
 
-    education:be.value.trim(),
 
-    location:bl.value.trim(),
+  const bio = {
 
-    intro:bi.value.trim()
+    name:$("bn").value.trim(),
+
+    age:$("ba").value.trim(),
+
+    education:$("be").value.trim(),
+
+    location:$("bl").value.trim(),
+
+    intro:$("bi").value.trim(),
+
+    updatedAt:Date.now()
 
   };
 
-  save(d);
 
-  render();
+  if(!bio.name){
 
-  alert(
-    'Bio saved'
-  );
+    alert("Name required.");
 
-}
+    return;
+
+  }
 
 
-/* =========================================
-   ADMIN TAB
-========================================= */
+  try{
 
-function tab(id){
-
-  document
-    .querySelectorAll('.admin-section')
-    .forEach(x=>
-      x.classList.remove('active')
+    await setDoc(
+      doc(db,"settings","bio"),
+      bio,
+      {merge:true}
     );
 
+
+    alert("Bio saved.");
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      "Bio save failed: " + e.message
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   LOAD BIO INTO ADMIN
+========================================================= */
+
+function loadBioForm(){
+
+  const b =
+    appData.bio || defaults.bio;
+
+
+  $("bn").value =
+    b.name || "";
+
+  $("ba").value =
+    b.age || "";
+
+  $("be").value =
+    b.education || "";
+
+  $("bl").value =
+    b.location || "";
+
+  $("bi").value =
+    b.intro || "";
+
+}
+
+
+/* =========================================================
+   ADMIN TAB
+========================================================= */
+
+window.tab = function(id){
+
   document
-    .getElementById(id)
-    .classList.add('active');
+    .querySelectorAll(".admin-section")
+    .forEach(x =>
+      x.classList.remove("active")
+    );
 
 
-  if(id==='bA'){
+  const section =
+    document.getElementById(id);
 
-    let b=data().bio;
 
-    bn.value=b.name;
-    ba.value=b.age;
-    be.value=b.education;
-    bl.value=b.location;
-    bi.value=b.intro;
+  if(section){
+
+    section.classList.add("active");
 
   }
+
+
+  if(id === "bA"){
+
+    loadBioForm();
+
+  }
+
+};
+
+
+/* =========================================================
+   AUTH CHECK
+========================================================= */
+
+function isAdmin(){
+
+  const user =
+    auth.currentUser;
+
+  return !!(
+    user &&
+    user.uid === ADMIN_UID
+  );
 
 }
 
 
-/* =========================================
-   BIO MODAL
-========================================= */
+/* =========================================================
+   OPEN LOGIN
+========================================================= */
 
-function openBio(){
+function openLogin(){
 
-  bioModal.classList.add('show');
+  $("loginModal")
+    .classList.add("show");
+
+  $("loginStatus")
+    .textContent="";
+
+  $("loginEmail")
+    .focus();
+
+}
+
+
+function closeLogin(){
+
+  $("loginModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+window.loginAdmin = async function(){
+
+  const email =
+    $("loginEmail").value.trim();
+
+  const password =
+    $("loginPassword").value;
+
+
+  if(!email || !password){
+
+    $("loginStatus").textContent =
+      "Email and password required.";
+
+    return;
+
+  }
+
+
+  $("loginStatus").textContent =
+    "Signing in...";
+
+
+  $("loginButton").disabled=true;
+
+
+  try{
+
+    const result =
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+    if(
+      result.user.uid !== ADMIN_UID
+    ){
+
+      await signOut(auth);
+
+      throw new Error(
+        "This account is not authorized as admin."
+      );
+
+    }
+
+
+    $("loginPassword").value="";
+
+    closeLogin();
+
+    openAdmin();
+
+
+  }catch(e){
+
+    console.error(e);
+
+    $("loginStatus").textContent =
+      e.message || "Login failed.";
+
+  }finally{
+
+    $("loginButton").disabled=false;
+
+  }
+
+};
+
+
+window.closeLogin =
+  closeLogin;
+
+
+/* =========================================================
+   ADMIN OPEN/CLOSE
+========================================================= */
+
+window.openAdmin = function(){
+
+  if(!isAdmin()){
+
+    openLogin();
+
+    return;
+
+  }
+
+
+  $("adminModal")
+    .classList.add("show");
+
 
   history.pushState(
-    {modal:'bio'},
-    '',
-    '#bio'
+    {modal:"admin"},
+    "",
+    "#admin"
   );
+
 
   render();
 
-}
+};
 
 
-function closeBio(){
+window.closeAdmin = function(){
 
-  bioModal.classList.remove('show');
+  $("adminModal")
+    .classList.remove("show");
 
-  if(
-    location.hash==='#bio'
-  ){
+
+  if(location.hash === "#admin"){
+
     history.back();
+
   }
 
-}
+};
 
 
-/* =========================================
-   ADMIN
-========================================= */
+/* =========================================================
+   LOGOUT
+========================================================= */
 
-function openAdmin(){
+window.logoutAdmin = async function(){
 
-  adminModal.classList.add('show');
+  try{
 
-  history.pushState(
-    {modal:'admin'},
-    '',
-    '#admin'
-  );
+    await signOut(auth);
 
-  render();
+    $("adminModal")
+      .classList.remove("show");
 
-}
+    alert("Logged out.");
 
+  }catch(e){
 
-function closeAdmin(){
+    console.error(e);
 
-  adminModal.classList.remove('show');
-
-  if(
-    location.hash==='#admin'
-  ){
-    history.back();
   }
 
-}
+};
 
 
-function logoutAdmin(){
-
-  sessionStorage.removeItem(
-    'hexcaAdmin'
-  );
-
-  closeAdmin();
-
-}
-
-
-/* =========================================
-   5 CLICK ADMIN SYSTEM
-========================================= */
+/* =========================================================
+   5 TAP ADMIN
+========================================================= */
 
 let taps=0;
-let timer;
 
+let tapTimer=null;
 
-/*
-   Home-এর center logo
-   ৫ বার দ্রুত click/tap
-*/
 
 function adminTap(){
 
   taps++;
 
-  clearTimeout(timer);
 
-  timer=setTimeout(
-    ()=>{
-      taps=0;
-    },
-    1400
-  );
+  clearTimeout(tapTimer);
 
-  if(taps>=5){
+
+  tapTimer =
+    setTimeout(
+      () => {
+        taps=0;
+      },
+      1400
+    );
+
+
+  if(taps >= 5){
 
     taps=0;
 
-    if(
-      sessionStorage.hexcaAdmin==='1'
-    ){
+    clearTimeout(tapTimer);
 
-      openAdmin();
+
+    if(isAdmin()){
+
+      window.openAdmin();
 
     }else{
 
-      let p=
-        prompt(
-          'Admin password:'
-        );
-
-      if(
-        p===PASS
-      ){
-
-        sessionStorage.hexcaAdmin='1';
-
-        openAdmin();
-
-      }else if(
-        p!==null
-      ){
-
-        alert(
-          'Wrong password'
-        );
-
-      }
+      openLogin();
 
     }
 
@@ -2603,39 +2698,33 @@ function adminTap(){
 }
 
 
-/*
-   Loader logo-তেও ৫ click রাখা হলো
-*/
-
-adminLogo.addEventListener(
-  'click',
-  adminTap
-);
+$("adminLogo")
+  .addEventListener(
+    "click",
+    adminTap
+  );
 
 
-/*
-   Main Home logo
-*/
-
-homeAdminLogo.addEventListener(
-  'click',
-  adminTap
-);
+$("homeAdminLogo")
+  .addEventListener(
+    "click",
+    adminTap
+  );
 
 
-/* =========================================
+/* =========================================================
    PAGE SYSTEM
-========================================= */
+========================================================= */
 
 function updateMobileActive(name){
 
   document
-    .querySelectorAll('.mobile-link')
-    .forEach(a=>{
+    .querySelectorAll(".mobile-link")
+    .forEach(a => {
 
       a.classList.toggle(
-        'active',
-        a.dataset.page===name
+        "active",
+        a.dataset.page === name
       );
 
     });
@@ -2643,52 +2732,70 @@ function updateMobileActive(name){
 }
 
 
-function page(n,push=true){
+function closeMore(){
 
-  let allowed=[
-    'home',
-    'social',
-    'apk',
-    'about',
-    'privacy',
-    'bio'
+  $("moreMenu")
+    .classList.remove("show");
+
+  $("moreOverlay")
+    .classList.remove("show");
+
+}
+
+
+function page(
+  name,
+  push=true
+){
+
+  const allowed = [
+
+    "home",
+    "social",
+    "apk",
+    "about",
+    "privacy",
+    "bio"
+
   ];
 
-  if(!allowed.includes(n)){
-    n='home';
+
+  if(!allowed.includes(name)){
+
+    name="home";
+
   }
 
 
   document
-    .querySelectorAll('.page')
-    .forEach(x=>
-      x.classList.remove('active')
+    .querySelectorAll(".page")
+    .forEach(x =>
+      x.classList.remove("active")
     );
 
 
-  let target=
-    document.getElementById(
-      'page-'+n
-    );
+  const target =
+    $("page-"+name);
 
 
   if(target){
-    target.classList.add('active');
+
+    target.classList.add("active");
+
   }
 
 
-  updateMobileActive(n);
+  updateMobileActive(name);
 
-
-  closeMore(false);
+  closeMore();
 
 
   if(push){
 
     history.pushState(
-      {page:n},
-      '',
-      '#'+n
+      {page:name},
+      "",
+      "#"+name
     );
 
   }
@@ -2696,23 +2803,23 @@ function page(n,push=true){
 
   window.scrollTo({
     top:0,
-    behavior:'smooth'
+    behavior:"smooth"
   });
 
 }
 
 
-/* =========================================
+/* =========================================================
    PAGE LINKS
-========================================= */
+========================================================= */
 
 document
-  .querySelectorAll('[data-page]')
-  .forEach(a=>{
+  .querySelectorAll("[data-page]")
+  .forEach(a => {
 
     a.addEventListener(
-      'click',
-      e=>{
+      "click",
+      e => {
 
         e.preventDefault();
 
@@ -2726,159 +2833,355 @@ document
   });
 
 
-/* =========================================
+/* =========================================================
    MORE MENU
-========================================= */
+========================================================= */
 
-const moreButton=
-  document.getElementById(
-    'moreButton'
+$("moreButton")
+  .addEventListener(
+    "click",
+    e => {
+
+      e.stopPropagation();
+
+      $("moreMenu")
+        .classList.toggle("show");
+
+      $("moreOverlay")
+        .classList.toggle("show");
+
+    }
   );
 
-const moreMenu=
-  document.getElementById(
-    'moreMenu'
-  );
 
-const moreOverlay=
-  document.getElementById(
-    'moreOverlay'
+$("moreOverlay")
+  .addEventListener(
+    "click",
+    closeMore
   );
 
 
-function closeMore(){
+/* =========================================================
+   BIO MODAL
+========================================================= */
 
-  moreMenu.classList.remove(
-    'show'
+window.openBio = function(){
+
+  $("bioModal")
+    .classList.add("show");
+
+
+  history.pushState(
+    {modal:"bio"},
+    "",
+    "#bio"
   );
 
-  moreOverlay.classList.remove(
-    'show'
-  );
 
-}
+  render();
+
+};
 
 
-moreButton.addEventListener(
-  'click',
-  e=>{
+window.closeBio = function(){
 
-    e.stopPropagation();
+  $("bioModal")
+    .classList.remove("show");
 
-    moreMenu.classList.toggle(
-      'show'
-    );
 
-    moreOverlay.classList.toggle(
-      'show'
-    );
+  if(location.hash === "#bio"){
+
+    history.back();
 
   }
-);
+
+};
 
 
-moreOverlay.addEventListener(
-  'click',
-  closeMore
-);
-
-
-/* =========================================
+/* =========================================================
    BACK BUTTON
-========================================= */
+========================================================= */
 
-window.onpopstate=function(){
+window.onpopstate = function(){
 
-  if(
-    location.hash==='#bio'
-  ){
-
-    bioModal.classList.add(
-      'show'
-    );
-
-    adminModal.classList.remove(
-      'show'
-    );
-
-    return;
-
-  }
+  const hash =
+    location.hash;
 
 
-  if(
-    location.hash==='#admin'
-  ){
+  if(hash === "#bio"){
 
-    adminModal.classList.add(
-      'show'
-    );
+    $("adminModal")
+      .classList.remove("show");
 
-    bioModal.classList.remove(
-      'show'
-    );
+    $("bioModal")
+      .classList.add("show");
 
     return;
 
   }
 
 
-  bioModal.classList.remove(
-    'show'
-  );
+  if(hash === "#admin"){
 
-  adminModal.classList.remove(
-    'show'
-  );
+    if(isAdmin()){
+
+      $("bioModal")
+        .classList.remove("show");
+
+      $("adminModal")
+        .classList.add("show");
+
+    }else{
+
+      $("adminModal")
+        .classList.remove("show");
+
+      openLogin();
+
+    }
+
+    return;
+
+  }
+
+
+  $("bioModal")
+    .classList.remove("show");
+
+  $("adminModal")
+    .classList.remove("show");
 
 
   page(
-    location.hash.slice(1)||'home',
+    hash.slice(1) || "home",
     false
   );
 
 };
 
 
-/* =========================================
+/* =========================================================
+   FIRESTORE REAL-TIME LISTENERS
+========================================================= */
+
+
+/*
+   SOCIAL
+*/
+
+onSnapshot(
+  collection(db,"social"),
+
+  snapshot => {
+
+    if(snapshot.empty){
+
+      appData.social =
+        [...defaults.social];
+
+    }else{
+
+      appData.social =
+        snapshot.docs.map(d => ({
+          id:d.id,
+          ...d.data()
+        }));
+
+    }
+
+    render();
+
+  },
+
+  error => {
+
+    console.error(
+      "Social listener:",
+      error
+    );
+
+    appData.social =
+      [...defaults.social];
+
+    render();
+
+  }
+);
+
+
+/*
+   APK
+*/
+
+onSnapshot(
+  collection(db,"apk"),
+
+  snapshot => {
+
+    appData.apk =
+      snapshot.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
+
+    render();
+
+  },
+
+  error => {
+
+    console.error(
+      "APK listener:",
+      error
+    );
+
+  }
+);
+
+
+/*
+   VIDEOS
+*/
+
+onSnapshot(
+  collection(db,"videos"),
+
+  snapshot => {
+
+    appData.videos =
+      snapshot.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
+
+    render();
+
+  },
+
+  error => {
+
+    console.error(
+      "Video listener:",
+      error
+    );
+
+  }
+);
+
+
+/*
+   BIO
+*/
+
+onSnapshot(
+  doc(db,"settings","bio"),
+
+  snapshot => {
+
+    if(snapshot.exists()){
+
+      appData.bio = {
+        ...defaults.bio,
+        ...snapshot.data()
+      };
+
+    }else{
+
+      appData.bio =
+        {...defaults.bio};
+
+    }
+
+    render();
+
+  },
+
+  error => {
+
+    console.error(
+      "Bio listener:",
+      error
+    );
+
+    appData.bio =
+      {...defaults.bio};
+
+    render();
+
+  }
+);
+
+
+/* =========================================================
+   AUTH STATE
+========================================================= */
+
+onAuthStateChanged(
+  auth,
+  user => {
+
+    if(user){
+
+      if(user.uid !== ADMIN_UID){
+
+        signOut(auth);
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================================================
    INITIAL RENDER
-========================================= */
+========================================================= */
 
 render();
 
 
-/* =========================================
-   LOADER COUNTDOWN
-========================================= */
+/* =========================================================
+   LOADER
+========================================================= */
 
-let s=5;
+let seconds=5;
 
-let t=setInterval(
 
-  ()=>{
+const countdownTimer =
+  setInterval(
 
-    s--;
+    () => {
 
-    counter.textContent=s;
+      seconds--;
 
-    if(s<=0){
+      $("counter")
+        .textContent=seconds;
 
-      clearInterval(t);
 
-      loader.style.display='none';
+      if(seconds <= 0){
 
-      page(
-        location.hash.slice(1)||'home',
-        false
-      );
+        clearInterval(
+          countdownTimer
+        );
 
-    }
 
-  },
+        $("loader")
+          .style.display="none";
 
-  1000
 
-);
+        page(
+          location.hash.slice(1) || "home",
+          false
+        );
+
+      }
+
+    },
+
+    1000
+
+  );
 
 </script>
 
