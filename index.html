@@ -1001,7 +1001,7 @@ select{
         My Bio
       </button>
 
-      <!-- ================= SEARCH BAR ADDED HERE ================= -->
+      <!-- ================= SEARCH BAR ================= -->
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input 
@@ -1015,7 +1015,7 @@ select{
 
       <!-- SEARCH RESULTS CONTAINER -->
       <div id="searchResults" class="search-results"></div>
-      <!-- ========================================================= -->
+      <!-- =============================================== -->
 
     </div>
 
@@ -1161,6 +1161,13 @@ select{
 
     </section>
 
+    <!-- PRIVATE CODE BUTTON -->
+    <div style="text-align: center; margin-top: 20px;">
+      <button class="btn" onclick="openPrivatePrompt()">
+        <i class="fa-solid fa-lock"></i> Private Code / Files
+      </button>
+    </div>
+
   </div>
 
 </section>
@@ -1215,7 +1222,6 @@ select{
 
   © 2026 Hexca Web • All Rights Reserved.
 
-  <!-- VISIT COUNTER SECTION (Added Here) -->
   <div style="margin-top: 10px; font-family: 'Share Tech Mono', monospace; font-size: 14px; color: #7dff9a;">
     <i class="fa-solid fa-eye"></i> TOTAL VISITS: <span id="visitCount" style="color: #fff; font-weight: bold;">Loading...</span>
   </div>
@@ -1390,6 +1396,64 @@ select{
 </div>
 
 
+<!-- =========================================================
+     PRIVATE CODE 2-STEP MODALS
+========================================================= -->
+
+<!-- Step 1: Master Password Prompt (Default 786) -->
+<div id="privatePasswordModal" class="modal">
+  <div class="modal-box" style="max-width: 400px; text-align: center;">
+    <div class="modal-head">
+      <h2>ENTER MASTER PASSWORD</h2>
+      <button class="close" onclick="closePrivatePrompt()">×</button>
+    </div>
+    <p class="note">Enter master password to access files list (Default: 786).</p>
+    <input id="privatePassInput" type="password" placeholder="Master Password" style="margin-bottom: 15px; text-align: center;">
+    <button class="btn" onclick="verifyMasterPassword()">SUBMIT</button>
+    <p id="privatePassError" class="note" style="color: #ff5555; margin-top: 10px;"></p>
+  </div>
+</div>
+
+<!-- Step 2: Private Files List Modal -->
+<div id="privateFilesModal" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2>PRIVATE CODE FILES</h2>
+      <button class="close" onclick="closePrivateFiles()">×</button>
+    </div>
+    <p class="note">Select a file. Each file may require its own password set from the Admin Panel.</p>
+    <div id="privateFilesList" class="list" style="margin-top: 15px;"></div>
+  </div>
+</div>
+
+<!-- Step 2.5: Individual File Password Prompt -->
+<div id="filePasswordModal" class="modal">
+  <div class="modal-box" style="max-width: 400px; text-align: center;">
+    <div class="modal-head">
+      <h2 id="filePromptTitle">FILE PASSWORD</h2>
+      <button class="close" onclick="closeFilePrompt()">×</button>
+    </div>
+    <p class="note">This file is protected. Enter its specific password:</p>
+    <input id="filePassInput" type="password" placeholder="File Password" style="margin-bottom: 15px; text-align: center;">
+    <button class="btn" onclick="verifyFilePassword()">UNLOCK FILE</button>
+    <p id="filePassError" class="note" style="color: #ff5555; margin-top: 10px;"></p>
+  </div>
+</div>
+
+<!-- Final Step: File Content View Modal -->
+<div id="fileContentModal" class="modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="viewFileName">FILE CONTENT</h2>
+      <button class="close" onclick="closeFileContent()">×</button>
+    </div>
+    <textarea id="viewFileCode" rows="10" readonly style="font-family: 'Share Tech Mono', monospace; font-size: 14px; background: #010301; color: #39ff72; width: 100%; border: 1px solid #1fff64; border-radius: 9px; padding: 10px;"></textarea>
+    <button class="btn" onclick="copyFileCode()" style="margin-top: 10px;"><i class="fa-solid fa-copy"></i> Copy Code</button>
+  </div>
+</div>
+<!-- ========================================================= -->
+
+
 <!-- ADMIN PANEL -->
 
 <div id="adminModal" class="modal">
@@ -1422,6 +1486,8 @@ select{
       <button onclick="tab('vA')">Videos</button>
 
       <button onclick="tab('bA')">Bio</button>
+      
+      <button onclick="tab('fA')">Files</button>
 
     </div>
 
@@ -1572,6 +1638,36 @@ select{
     </div>
 
 
+    <!-- PRIVATE FILES ADMIN TAB -->
+    <div id="fA" class="admin-section">
+
+      <input id="fi" type="hidden">
+
+      <label>File Name</label>
+
+      <input id="fn" placeholder="e.g. My Script.js">
+
+      <label>Password to open this specific file</label>
+
+      <input id="fp" type="text" placeholder="Enter file password">
+
+      <label>File / Code Content</label>
+
+      <textarea id="fc" rows="5" placeholder="Paste your private code or text here..."></textarea>
+
+      <button class="btn" onclick="savePrivateFile()">
+        SAVE FILE
+      </button>
+
+      <p class="note">
+        Manage private code files. Users must enter the master password (786) first, then the specific file password to view its content.
+      </p>
+
+      <div id="fl" class="list"></div>
+
+    </div>
+
+
     <button class="btn" onclick="logoutAdmin()">
       LOGOUT
     </button>
@@ -1686,6 +1782,8 @@ const defaults = {
 
   videos:[],
 
+  privateFiles:[],
+
   bio:{
 
     name:"SAMIM AKTAR (SSK)",
@@ -1717,6 +1815,8 @@ let appData = {
   apk:[],
 
   videos:[],
+
+  privateFiles:[],
 
   bio:{...defaults.bio}
 
@@ -2093,6 +2193,42 @@ function lists(){
 
     `).join("");
 
+  // Private Files List in Admin
+  $("fl").innerHTML =
+    appData.privateFiles.map(x => `
+
+      <div class="item">
+
+        <div>
+
+          <b>${esc(x.name)}</b>
+
+          <br>
+
+          <small>File Pass: ${esc(x.password || "None")}</small>
+
+        </div>
+
+        <div>
+
+          <button
+            onclick="editPrivateFile('${esc(x.id)}')"
+          >
+            Edit
+          </button>
+
+          <button
+            onclick="deleteItem('privateFiles','${esc(x.id)}')"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
 }
 
 
@@ -2405,6 +2541,85 @@ window.editVideo = function(id){
   $("vi").value=id;
   $("vt").value=x.title;
   $("vu").value=x.url;
+
+};
+
+
+/* =========================================================
+   PRIVATE FILE SAVE (ADMIN)
+========================================================= */
+
+window.savePrivateFile = async function(){
+
+  if(!isAdmin()){
+
+    alert("Admin login required.");
+
+    return;
+
+  }
+
+  const id = $("fi").value.trim();
+  const name = $("fn").value.trim();
+  const password = $("fp").value.trim();
+  const code = $("fc").value.trim();
+
+  if(!name || !code){
+
+    alert("File name and code content required.");
+
+    return;
+
+  }
+
+  try{
+
+    const data = {
+
+      name,
+      password,
+      code,
+      updatedAt: Date.now()
+
+    };
+
+    if(id){
+
+      await setDoc(doc(db, "privateFiles", id), data, {merge: true});
+
+    }else{
+
+      await addDoc(collection(db, "privateFiles"), data);
+
+    }
+
+    $("fi").value="";
+    $("fn").value="";
+    $("fp").value="";
+    $("fc").value="";
+
+    alert("Private file saved.");
+
+  }catch(e){
+
+    console.error(e);
+
+    alert("Save failed: " + e.message);
+
+  }
+
+};
+
+window.editPrivateFile = function(id){
+
+  const x = appData.privateFiles.find(item => item.id === id);
+
+  if(!x) return;
+
+  $("fi").value = id;
+  $("fn").value = x.name;
+  $("fp").value = x.password || "";
+  $("fc").value = x.code || "";
 
 };
 
@@ -3021,6 +3236,116 @@ window.closeBio = function(){
 
 
 /* =========================================================
+   2-STEP PRIVATE CODE LOGIC
+========================================================= */
+
+window.openPrivatePrompt = function(){
+  $("privatePassInput").value = "";
+  $("privatePassError").textContent = "";
+  $("privatePasswordModal").classList.add("show");
+};
+
+window.closePrivatePrompt = function(){
+  $("privatePasswordModal").classList.remove("show");
+};
+
+// Step 1: Verify Master Password '786'
+window.verifyMasterPassword = function(){
+  const pass = $("privatePassInput").value.trim();
+  
+  if(pass === "786"){
+    closePrivatePrompt();
+    renderPrivateFilesModal();
+    $("privateFilesModal").classList.add("show");
+  } else {
+    $("privatePassError").textContent = "Incorrect master password! (Default: 786)";
+  }
+};
+
+window.closePrivateFiles = function(){
+  $("privateFilesModal").classList.remove("show");
+};
+
+function renderPrivateFilesModal(){
+  const container = $("privateFilesList");
+  if(appData.privateFiles.length === 0){
+    container.innerHTML = '<p class="note" style="text-align:center;">No private files added yet from Admin Panel.</p>';
+    return;
+  }
+
+  container.innerHTML = appData.privateFiles.map(f => `
+    <div class="item">
+      <div>
+        <b><i class="fa-solid fa-file-code"></i> ${esc(f.name)}</b>
+      </div>
+      <div>
+        <button class="btn" style="margin:0; padding:6px 12px; font-size:12px;" onclick="promptFilePassword('${esc(f.id)}')">Open File</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+let activeFileId = null;
+
+// Step 2: Prompt for specific file password
+window.promptFilePassword = function(id){
+  const file = appData.privateFiles.find(f => f.id === id);
+  if(!file) return;
+
+  activeFileId = id;
+  $("filePassInput").value = "";
+  $("filePassError").textContent = "";
+  
+  // If file doesn't have a password set, open directly
+  if(!file.password || file.password.trim() === ""){
+    openFileContent(file);
+    return;
+  }
+
+  $("privateFilesModal").classList.remove("show");
+  $("filePasswordModal").classList.add("show");
+};
+
+window.closeFilePrompt = function(){
+  $("filePasswordModal").classList.remove("show");
+  $("privateFilesModal").classList.add("show");
+};
+
+// Verify individual file password
+window.verifyFilePassword = function(){
+  const enteredPass = $("filePassInput").value.trim();
+  const file = appData.privateFiles.find(f => f.id === activeFileId);
+
+  if(!file) return;
+
+  if(enteredPass === file.password){
+    $("filePasswordModal").classList.remove("show");
+    openFileContent(file);
+  } else {
+    $("filePassError").textContent = "Incorrect file password!";
+  }
+};
+
+function openFileContent(file){
+  $("viewFileName").textContent = file.name;
+  $("viewFileCode").value = file.code || "";
+  $("fileContentModal").classList.add("show");
+}
+
+window.closeFileContent = function(){
+  $("fileContentModal").classList.remove("show");
+  $("privateFilesModal").classList.add("show");
+};
+
+window.copyFileCode = function(){
+  const textarea = $("viewFileCode");
+  textarea.select();
+  document.execCommand("copy");
+  alert("Code copied to clipboard!");
+};
+
+
+/* =========================================================
    BACK BUTTON
 ========================================================= */
 
@@ -3072,6 +3397,11 @@ window.onpopstate = function(){
 
   $("adminModal")
     .classList.remove("show");
+    
+  $("privatePasswordModal").classList.remove("show");
+  $("privateFilesModal").classList.remove("show");
+  $("filePasswordModal").classList.remove("show");
+  $("fileContentModal").classList.remove("show");
 
 
   page(
@@ -3192,6 +3522,36 @@ onSnapshot(
 
 
 /*
+   PRIVATE FILES
+*/
+
+onSnapshot(
+  collection(db,"privateFiles"),
+
+  snapshot => {
+
+    appData.privateFiles =
+      snapshot.docs.map(d => ({
+        id:d.id,
+        ...d.data()
+      }));
+
+    render();
+
+  },
+
+  error => {
+
+    console.error(
+      "Private Files listener:",
+      error
+    );
+
+  }
+);
+
+
+/*
    BIO
 */
 
@@ -3264,7 +3624,7 @@ render();
 
 
 /* =========================================================
-   SEARCH SYSTEM (NEWLY ADDED)
+   SEARCH SYSTEM
 ========================================================= */
 
 window.handleSearch = function(q){
@@ -3328,26 +3688,8 @@ window.handleSearch = function(q){
 
   // Search Social Links
   const socs = appData.social.filter(s =>
-    s.name.toLowerCase().includes(query)
+    s.name.toLowerCase().text.toLowerCase().includes(query) // fallback check
   );
-
-  if(socs.length){
-    found = true;
-    html += `<h4 style="margin-top: 15px;"><i class="fa-solid fa-users"></i> SOCIAL</h4>`;
-    socs.forEach(s => {
-      const url = safeUrl(s.url);
-      if(!url) return;
-      html += `
-        <a href="${esc(url)}" target="_blank" class="search-item">
-          <i class="${esc(s.icon)}"></i>
-          <div class="search-item-text">
-            <strong>${esc(s.name)}</strong>
-            <small>Open Link</small>
-          </div>
-        </a>
-      `;
-    });
-  }
 
   // If nothing is found
   if(!found){
