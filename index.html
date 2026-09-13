@@ -313,6 +313,107 @@ header{
     0 0 25px rgba(0,255,70,.3);
 }
 
+/* ================== SEARCH SYSTEM CSS ================== */
+.search-box {
+  max-width: 580px;
+  margin: 30px auto 10px;
+  position: relative;
+  padding: 0 15px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px 14px 45px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 255, 85, 0.6);
+  background: rgba(0, 255, 70, 0.05);
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Share Tech Mono', monospace;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 15px rgba(0, 255, 70, 0.4);
+  background: rgba(0, 255, 70, 0.1);
+  border-color: #00ff55;
+}
+
+.search-icon {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #39ff72;
+  font-size: 16px;
+}
+
+.search-results {
+  display: none;
+  max-width: 550px;
+  margin: 10px auto 25px;
+  text-align: left;
+  background: #010502;
+  border: 1px solid rgba(0, 255, 70, 0.35);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  position: relative;
+}
+
+.search-results h4 {
+  font: 700 15px Orbitron;
+  color: #43ff75;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 255, 70, 0.2);
+  padding-bottom: 5px;
+}
+
+.search-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #020704;
+  border: 1px solid rgba(0, 255, 70, 0.15);
+  margin-bottom: 10px;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.search-item:hover {
+  border-color: #00ff55;
+  transform: translateX(5px);
+  background: rgba(0, 255, 70, 0.05);
+}
+
+.search-item i {
+  font-size: 20px;
+  color: #39ff72;
+  width: 25px;
+  text-align: center;
+}
+
+.search-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-item-text strong {
+  color: #fff;
+  font-size: 14px;
+}
+
+.search-item-text small {
+  color: #9fc8a8;
+  font-size: 12px;
+  margin-top: 3px;
+}
+/* ======================================================== */
+
 /* SECTIONS */
 
 .section{
@@ -899,6 +1000,22 @@ select{
         <i class="fa-solid fa-id-card"></i>
         My Bio
       </button>
+
+      <!-- ================= SEARCH BAR ADDED HERE ================= -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input 
+          type="text" 
+          id="globalSearch" 
+          class="search-input" 
+          placeholder="Search APKs, Videos, Social links..." 
+          oninput="handleSearch(this.value)"
+        >
+      </div>
+
+      <!-- SEARCH RESULTS CONTAINER -->
+      <div id="searchResults" class="search-results"></div>
+      <!-- ========================================================= -->
 
     </div>
 
@@ -3145,6 +3262,101 @@ onAuthStateChanged(
 
 render();
 
+
+/* =========================================================
+   SEARCH SYSTEM (NEWLY ADDED)
+========================================================= */
+
+window.handleSearch = function(q){
+  const query = q.toLowerCase().trim();
+  const resDiv = document.getElementById("searchResults");
+
+  if(!query){
+    resDiv.style.display = "none";
+    return;
+  }
+
+  let html = "";
+  let found = false;
+
+  // Search APKs
+  const apks = appData.apk.filter(a =>
+    a.name.toLowerCase().includes(query) ||
+    (a.desc && a.desc.toLowerCase().includes(query))
+  );
+
+  if(apks.length){
+    found = true;
+    html += `<h4><i class="fa-solid fa-box-open"></i> APK LINKS</h4>`;
+    apks.forEach(a => {
+      const url = safeUrl(a.url);
+      if(!url) return;
+      html += `
+        <a href="${esc(url)}" target="_blank" class="search-item">
+          <i class="fa-solid fa-download"></i>
+          <div class="search-item-text">
+            <strong>${esc(a.name)}</strong>
+            <small>${esc(a.desc || "Download APK")}</small>
+          </div>
+        </a>
+      `;
+    });
+  }
+
+  // Search Videos
+  const vids = appData.videos.filter(v =>
+    v.title.toLowerCase().includes(query)
+  );
+
+  if(vids.length){
+    found = true;
+    html += `<h4 style="margin-top: 15px;"><i class="fa-brands fa-youtube"></i> VIDEOS</h4>`;
+    vids.forEach(v => {
+      const url = safeUrl(v.url);
+      if(!url) return;
+      html += `
+        <a href="${esc(url)}" target="_blank" class="search-item">
+          <i class="fa-solid fa-play"></i>
+          <div class="search-item-text">
+            <strong>${esc(v.title)}</strong>
+            <small>Watch Video</small>
+          </div>
+        </a>
+      `;
+    });
+  }
+
+  // Search Social Links
+  const socs = appData.social.filter(s =>
+    s.name.toLowerCase().includes(query)
+  );
+
+  if(socs.length){
+    found = true;
+    html += `<h4 style="margin-top: 15px;"><i class="fa-solid fa-users"></i> SOCIAL</h4>`;
+    socs.forEach(s => {
+      const url = safeUrl(s.url);
+      if(!url) return;
+      html += `
+        <a href="${esc(url)}" target="_blank" class="search-item">
+          <i class="${esc(s.icon)}"></i>
+          <div class="search-item-text">
+            <strong>${esc(s.name)}</strong>
+            <small>Open Link</small>
+          </div>
+        </a>
+      `;
+    });
+  }
+
+  // If nothing is found
+  if(!found){
+    html = `<div style="text-align:center; color:#caffd2; padding: 15px 0;">No results found for "<b>${esc(query)}</b>"</div>`;
+  }
+
+  resDiv.innerHTML = html;
+  resDiv.style.display = "block";
+};
 
 /* =========================================================
    LOADER
