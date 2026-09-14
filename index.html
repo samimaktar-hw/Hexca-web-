@@ -3628,76 +3628,313 @@ render();
 ========================================================= */
 
 window.handleSearch = function(q){
-  const query = q.toLowerCase().trim();
-  const resDiv = document.getElementById("searchResults");
 
+  const query = String(q || "").toLowerCase().trim();
+
+  const resDiv = $("searchResults");
+
+  if(!resDiv){
+    return;
+  }
+
+  /* Empty search */
   if(!query){
+
+    resDiv.innerHTML = "";
+
     resDiv.style.display = "none";
+
     return;
   }
 
   let html = "";
+
   let found = false;
 
-  // Search APKs
-  const apks = appData.apk.filter(a =>
-    a.name.toLowerCase().includes(query) ||
-    (a.desc && a.desc.toLowerCase().includes(query))
-  );
+
+  /* =====================================================
+     SEARCH APK LINKS
+  ===================================================== */
+
+  const apks = Array.isArray(appData.apk)
+    ? appData.apk.filter(a => {
+
+        const name =
+          String(a?.name || "").toLowerCase();
+
+        const desc =
+          String(a?.desc || "").toLowerCase();
+
+        return (
+          name.includes(query) ||
+          desc.includes(query)
+        );
+
+      })
+    : [];
+
 
   if(apks.length){
-    found = true;
-    html += `<h4><i class="fa-solid fa-box-open"></i> APK LINKS</h4>`;
+
+    let apkHTML = "";
+
     apks.forEach(a => {
-      const url = safeUrl(a.url);
-      if(!url) return;
-      html += `
-        <a href="${esc(url)}" target="_blank" class="search-item">
+
+      const url =
+        safeUrl(a?.url);
+
+      if(!url){
+        return;
+      }
+
+      found = true;
+
+      apkHTML += `
+
+        <a
+          href="${esc(url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="search-item"
+        >
+
           <i class="fa-solid fa-download"></i>
+
           <div class="search-item-text">
-            <strong>${esc(a.name)}</strong>
-            <small>${esc(a.desc || "Download APK")}</small>
+
+            <strong>
+              ${esc(a?.name || "APK")}
+            </strong>
+
+            <small>
+              ${esc(a?.desc || "Download APK")}
+            </small>
+
           </div>
+
         </a>
+
       `;
+
     });
+
+
+    if(apkHTML){
+
+      html += `
+
+        <h4>
+          <i class="fa-solid fa-box-open"></i>
+          APK LINKS
+        </h4>
+
+        ${apkHTML}
+
+      `;
+
+    }
+
   }
 
-  // Search Videos
-  const vids = appData.videos.filter(v =>
-    v.title.toLowerCase().includes(query)
-  );
+
+  /* =====================================================
+     SEARCH YOUTUBE VIDEOS
+  ===================================================== */
+
+  const vids = Array.isArray(appData.videos)
+    ? appData.videos.filter(v => {
+
+        const title =
+          String(v?.title || "").toLowerCase();
+
+        return title.includes(query);
+
+      })
+    : [];
+
 
   if(vids.length){
-    found = true;
-    html += `<h4 style="margin-top: 15px;"><i class="fa-brands fa-youtube"></i> VIDEOS</h4>`;
+
+    let videoHTML = "";
+
     vids.forEach(v => {
-      const url = safeUrl(v.url);
-      if(!url) return;
-      html += `
-        <a href="${esc(url)}" target="_blank" class="search-item">
+
+      const url =
+        safeUrl(v?.url);
+
+      if(!url){
+        return;
+      }
+
+      found = true;
+
+      videoHTML += `
+
+        <a
+          href="${esc(url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="search-item"
+        >
+
           <i class="fa-solid fa-play"></i>
+
           <div class="search-item-text">
-            <strong>${esc(v.title)}</strong>
-            <small>Watch Video</small>
+
+            <strong>
+              ${esc(v?.title || "Video")}
+            </strong>
+
+            <small>
+              Watch Video
+            </small>
+
           </div>
+
         </a>
+
       `;
+
     });
+
+
+    if(videoHTML){
+
+      html += `
+
+        <h4 style="margin-top:15px;">
+
+          <i class="fa-brands fa-youtube"></i>
+          VIDEOS
+
+        </h4>
+
+        ${videoHTML}
+
+      `;
+
+    }
+
   }
 
-  // Search Social Links
-  const socs = appData.social.filter(s =>
-    s.name.toLowerCase().text.toLowerCase().includes(query) // fallback check
-  );
 
-  // If nothing is found
+  /* =====================================================
+     SEARCH SOCIAL LINKS
+  ===================================================== */
+
+  const socs = Array.isArray(appData.social)
+    ? appData.social.filter(s => {
+
+        const name =
+          String(s?.name || "").toLowerCase();
+
+        return name.includes(query);
+
+      })
+    : [];
+
+
+  if(socs.length){
+
+    let socialHTML = "";
+
+    socs.forEach(s => {
+
+      const url =
+        safeUrl(s?.url);
+
+      if(!url){
+        return;
+      }
+
+      found = true;
+
+      socialHTML += `
+
+        <a
+          href="${esc(url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="search-item"
+        >
+
+          <i class="${
+            esc(s?.icon || "fa-solid fa-link")
+          }"></i>
+
+          <div class="search-item-text">
+
+            <strong>
+              ${esc(s?.name || "Social")}
+            </strong>
+
+            <small>
+              Open Social Link
+            </small>
+
+          </div>
+
+        </a>
+
+      `;
+
+    });
+
+
+    if(socialHTML){
+
+      html += `
+
+        <h4 style="margin-top:15px;">
+
+          <i class="fa-solid fa-share-nodes"></i>
+          SOCIAL LINKS
+
+        </h4>
+
+        ${socialHTML}
+
+      `;
+
+    }
+
+  }
+
+
+  /* =====================================================
+     NO RESULTS
+  ===================================================== */
+
   if(!found){
-    html = `<div style="text-align:center; color:#caffd2; padding: 15px 0;">No results found for "<b>${esc(query)}</b>"</div>`;
+
+    html = `
+
+      <div
+        style="
+          text-align:center;
+          color:#caffd2;
+          padding:15px 0;
+        "
+      >
+
+        No results found for
+        "<b>${esc(query)}</b>"
+
+      </div>
+
+    `;
+
   }
+
+
+  /* =====================================================
+     SHOW RESULTS
+  ===================================================== */
 
   resDiv.innerHTML = html;
+
   resDiv.style.display = "block";
+
 };
 
 /* =========================================================
@@ -3746,7 +3983,6 @@ const countdownTimer =
 
 <!-- EXTERNAL JS FOR VISIT COUNTER -->
 <script type="module" src="counter.js"></script>
-<script type="module" src="script.js"></script>
   
 </body>
 </html>
