@@ -11,717 +11,135 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&display=swap');
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{ box-sizing:border-box; margin:0; padding:0; }
 html{scroll-behavior:smooth}
-
-body{
-  background:#020303;
-  color:#eaffea;
-  font-family:Arial,sans-serif;
-  overflow-x:hidden;
-  padding-bottom:0;
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:90;
-  background:linear-gradient(
-    rgba(0,255,80,.025) 50%,
-    transparent 50%
-  );
-  background-size:100% 4px;
-  opacity:.3;
-}
-
+body{ background:#020303; color:#eaffea; font-family:Arial,sans-serif; overflow-x:hidden; padding-bottom:0; }
+body:before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:90; background:linear-gradient(rgba(0,255,80,.025) 50%,transparent 50%); background-size:100% 4px; opacity:.3; }
 a{text-decoration:none;color:inherit}
-
 button,input,textarea,select{font:inherit}
 
+/* CUSTOM APP ICONS FIX */
+i.fa-netflix { content: url('https://upload.wikimedia.org/wikipedia/commons/0/0c/Netflix_2015_N_logo.svg'); width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
+
 /* LOADER */
-#loader{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(0,255,70,.13),
-      transparent 28%
-    ),
-    #010201;
-}
-
-.matrix{
-  position:absolute;
-  inset:0;
-  opacity:.18;
-  background-image:
-    linear-gradient(
-      rgba(0,255,70,.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0,255,70,.08) 1px,
-      transparent 1px
-    );
-  background-size:30px 30px;
-  transform:
-    perspective(500px)
-    rotateX(55deg)
-    scale(1.5);
-  transform-origin:center bottom;
-  animation:grid 8s linear infinite;
-}
-
-@keyframes grid{
-  to{background-position:0 600px,0 0}
-}
-
-.loader-box{
-  width:min(92%,560px);
-  text-align:center;
-  z-index:2;
-}
-
-.terminal{
-  text-align:left;
-  font:14px/1.7 'Share Tech Mono';
-  color:#39ff72;
-  margin-bottom:22px;
-}
-
-.logo{
-  width:180px;
-  height:180px;
-  object-fit:contain;
-  border-radius:50%;
-  cursor:pointer;
-  filter:
-    drop-shadow(0 0 10px #00ff55)
-    drop-shadow(0 0 28px rgba(0,255,70,.7));
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-  50%{
-    filter:
-      drop-shadow(0 0 18px #00ff55)
-      drop-shadow(0 0 45px rgba(0,255,70,.9));
-  }
-}
-
-h1{
-  font:800 clamp(25px,7vw,48px) Orbitron;
-  color:#fff;
-  margin:20px 0 10px;
-  text-shadow:
-    0 0 8px #00ff55,
-    0 0 24px rgba(0,255,70,.5);
-}
-
-.welcome{
-  font:16px 'Share Tech Mono';
-  color:#7dff9a;
-}
-
-.countdown{
-  margin:24px auto;
-  width:min(90%,430px);
-  border:1px solid #00ff55;
-  border-radius:14px;
-  padding:16px;
-}
-
-.countdown b{
-  display:block;
-  font:800 42px Orbitron;
-  color:#39ff72;
-  margin-top:5px;
-}
+#loader{ position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at 50% 42%, rgba(0,255,70,.13), transparent 28%), #010201; }
+.matrix{ position:absolute; inset:0; opacity:.18; background-image: linear-gradient(rgba(0,255,70,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,70,.08) 1px, transparent 1px); background-size:30px 30px; transform: perspective(500px) rotateX(55deg) scale(1.5); transform-origin:center bottom; animation:grid 8s linear infinite; }
+@keyframes grid{ to{background-position:0 600px,0 0} }
+.loader-box{ width:min(92%,560px); text-align:center; z-index:2; }
+.terminal{ text-align:left; font:14px/1.7 'Share Tech Mono'; color:#39ff72; margin-bottom:22px; }
+.logo{ width:180px; height:180px; object-fit:contain; border-radius:50%; cursor:pointer; filter: drop-shadow(0 0 10px #00ff55) drop-shadow(0 0 28px rgba(0,255,70,.7)); animation:pulse 2s infinite; }
+@keyframes pulse{ 50%{ filter: drop-shadow(0 0 18px #00ff55) drop-shadow(0 0 45px rgba(0,255,70,.9)); } }
+h1{ font:800 clamp(25px,7vw,48px) Orbitron; color:#fff; margin:20px 0 10px; text-shadow: 0 0 8px #00ff55, 0 0 24px rgba(0,255,70,.5); }
+.welcome{ font:16px 'Share Tech Mono'; color:#7dff9a; }
+.countdown{ margin:24px auto; width:min(90%,430px); border:1px solid #00ff55; border-radius:14px; padding:16px; }
+.countdown b{ display:block; font:800 42px Orbitron; color:#39ff72; margin-top:5px; }
 
 /* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(0,5,2,.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(0,255,80,.3);
-}
-
-.nav{
-  width:min(1100px,94%);
-  margin:auto;
-  min-height:68px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  font:bold 14px Orbitron;
-}
-
-.brand img{
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  filter:drop-shadow(0 0 7px #00ff55);
-}
-
-.navlinks{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-}
-
-.navlinks a{
-  padding:8px 10px;
-  border-radius:20px;
-  color:#74ff91;
-  font-size:12px;
-  transition:.2s;
-}
-
-.navlinks a:hover{
-  border:1px solid #00ff55;
-  color:#fff;
-  box-shadow:0 0 10px rgba(0,255,70,.35);
-}
+header{ position:sticky; top:0; z-index:20; background:rgba(0,5,2,.92); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,255,80,.3); }
+.nav{ width:min(1100px,94%); margin:auto; min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.brand{ display:flex; align-items:center; gap:9px; font:bold 14px Orbitron; }
+.brand img{ width:43px; height:43px; border-radius:50%; filter:drop-shadow(0 0 7px #00ff55); }
+.navlinks{ display:flex; gap:5px; flex-wrap:wrap; }
+.navlinks a{ padding:8px 10px; border-radius:20px; color:#74ff91; font-size:12px; transition:.2s; }
+.navlinks a:hover{ border:1px solid #00ff55; color:#fff; box-shadow:0 0 10px rgba(0,255,70,.35); }
 
 /* PAGES */
-.page{
-  display:none;
-  min-height:calc(100vh - 68px);
-  padding:35px 0 55px;
-}
-
+.page{ display:none; min-height:calc(100vh - 68px); padding:35px 0 55px; }
 .page.active{display:block}
+.container{ width:min(1050px,92%); margin:auto; }
+.center-logo{ display:block; width:165px; height:165px; object-fit:contain; border-radius:50%; margin:5px auto 22px; cursor:pointer; filter: drop-shadow(0 0 12px #00ff55) drop-shadow(0 0 30px rgba(0,255,70,.5)); }
+.title{ text-align:center; font:800 clamp(25px,6vw,40px) Orbitron; color:#fff; text-shadow:0 0 10px #00ff55; margin-bottom:12px; }
+.sub{ text-align:center; color:#7dff9a; font:15px 'Share Tech Mono'; margin-bottom:25px; }
+.hero{ text-align:center; padding:10px 0 25px; }
+.hero h2{ font:800 clamp(24px,5vw,38px) Orbitron; margin-bottom:14px; }
+.hero p{ max-width:760px; margin:auto; font-size:17px; line-height:1.7; color:#c9ffd3; }
+.modified{ margin:18px 0; font:16px 'Share Tech Mono'; color:#40ff78; }
+.checks{ list-style:none; display:grid; gap:8px; max-width:390px; margin:18px auto; text-align:left; color:#bfffc9; }
+.checks li:before{ content:'✓'; color:#39ff72; font-weight:bold; margin-right:10px; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; margin:7px; padding:11px 17px; border:1px solid #00ff55; border-radius:25px; color:#45ff78; background:#031108; cursor:pointer; transition:.2s; }
+.btn:hover{ color:#fff; box-shadow: 0 0 12px #00ff55, 0 0 25px rgba(0,255,70,.3); }
 
-.container{
-  width:min(1050px,92%);
-  margin:auto;
-}
-
-.center-logo{
-  display:block;
-  width:165px;
-  height:165px;
-  object-fit:contain;
-  border-radius:50%;
-  margin:5px auto 22px;
-  cursor:pointer;
-  filter:
-    drop-shadow(0 0 12px #00ff55)
-    drop-shadow(0 0 30px rgba(0,255,70,.5));
-}
-
-.title{
-  text-align:center;
-  font:800 clamp(25px,6vw,40px) Orbitron;
-  color:#fff;
-  text-shadow:0 0 10px #00ff55;
-  margin-bottom:12px;
-}
-
-.sub{
-  text-align:center;
-  color:#7dff9a;
-  font:15px 'Share Tech Mono';
-  margin-bottom:25px;
-}
-
-.hero{
-  text-align:center;
-  padding:10px 0 25px;
-}
-
-.hero h2{
-  font:800 clamp(24px,5vw,38px) Orbitron;
-  margin-bottom:14px;
-}
-
-.hero p{
-  max-width:760px;
-  margin:auto;
-  font-size:17px;
-  line-height:1.7;
-  color:#c9ffd3;
-}
-
-.modified{
-  margin:18px 0;
-  font:16px 'Share Tech Mono';
-  color:#40ff78;
-}
-
-.checks{
-  list-style:none;
-  display:grid;
-  gap:8px;
-  max-width:390px;
-  margin:18px auto;
-  text-align:left;
-  color:#bfffc9;
-}
-
-.checks li:before{
-  content:'✓';
-  color:#39ff72;
-  font-weight:bold;
-  margin-right:10px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  margin:7px;
-  padding:11px 17px;
-  border:1px solid #00ff55;
-  border-radius:25px;
-  color:#45ff78;
-  background:#031108;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.btn:hover{
-  color:#fff;
-  box-shadow:
-    0 0 12px #00ff55,
-    0 0 25px rgba(0,255,70,.3);
-}
-
-/* SEARCH SYSTEM CSS */
-.search-box {
-  max-width: 580px;
-  margin: 30px auto 10px;
-  position: relative;
-  padding: 0 15px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 14px 20px 14px 45px;
-  border-radius: 30px;
-  border: 1px solid rgba(0, 255, 85, 0.6);
-  background: rgba(0, 255, 70, 0.05);
-  color: #fff;
-  font-size: 15px;
-  font-family: 'Share Tech Mono', monospace;
-  outline: none;
-  transition: 0.3s;
-}
-
-.search-input:focus {
-  box-shadow: 0 0 15px rgba(0, 255, 70, 0.4);
-  background: rgba(0, 255, 70, 0.1);
-  border-color: #00ff55;
-}
-
-.search-icon {
-  position: absolute;
-  left: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #39ff72;
-  font-size: 16px;
-}
-
-.search-results {
-  display: none;
-  max-width: 550px;
-  margin: 10px auto 25px;
-  text-align: left;
-  background: #010502;
-  border: 1px solid rgba(0, 255, 70, 0.35);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-  z-index: 10;
-  position: relative;
-}
-
-.search-results h4 {
-  font: 700 15px Orbitron;
-  color: #43ff75;
-  margin-bottom: 12px;
-  border-bottom: 1px solid rgba(0, 255, 70, 0.2);
-  padding-bottom: 5px;
-}
-
-.search-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px;
-  border-radius: 10px;
-  background: #020704;
-  border: 1px solid rgba(0, 255, 70, 0.15);
-  margin-bottom: 10px;
-  transition: 0.2s;
-  text-decoration: none;
-}
-
-.search-item:hover {
-  border-color: #00ff55;
-  transform: translateX(5px);
-  background: rgba(0, 255, 70, 0.05);
-}
-
-.search-item i {
-  font-size: 20px;
-  color: #39ff72;
-  width: 25px;
-  text-align: center;
-}
-
-.search-item-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.search-item-text strong {
-  color: #fff;
-  font-size: 14px;
-}
-
-.search-item-text small {
-  color: #9fc8a8;
-  font-size: 12px;
-  margin-top: 3px;
-}
+/* SEARCH */
+.search-box { max-width: 580px; margin: 30px auto 10px; position: relative; padding: 0 15px; }
+.search-input { width: 100%; padding: 14px 20px 14px 45px; border-radius: 30px; border: 1px solid rgba(0, 255, 85, 0.6); background: rgba(0, 255, 70, 0.05); color: #fff; font-size: 15px; font-family: 'Share Tech Mono', monospace; outline: none; transition: 0.3s; }
+.search-input:focus { box-shadow: 0 0 15px rgba(0, 255, 70, 0.4); background: rgba(0, 255, 70, 0.1); border-color: #00ff55; }
+.search-icon { position: absolute; left: 32px; top: 50%; transform: translateY(-50%); color: #39ff72; font-size: 16px; }
+.search-results { display: none; max-width: 550px; margin: 10px auto 25px; text-align: left; background: #010502; border: 1px solid rgba(0, 255, 70, 0.35); border-radius: 15px; padding: 20px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5); z-index: 10; position: relative; }
+.search-results h4 { font: 700 15px Orbitron; color: #43ff75; margin-bottom: 12px; border-bottom: 1px solid rgba(0, 255, 70, 0.2); padding-bottom: 5px; }
+.search-item { display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 10px; background: #020704; border: 1px solid rgba(0, 255, 70, 0.15); margin-bottom: 10px; transition: 0.2s; text-decoration: none; }
+.search-item:hover { border-color: #00ff55; transform: translateX(5px); background: rgba(0, 255, 70, 0.05); }
+.search-item i { font-size: 20px; color: #39ff72; width: 25px; text-align: center; }
+.search-item-text { display: flex; flex-direction: column; }
+.search-item-text strong { color: #fff; font-size: 14px; }
+.search-item-text small { color: #9fc8a8; font-size: 12px; margin-top: 3px; }
 
 /* SECTIONS */
-.section{
-  margin:25px auto 35px;
-  padding:26px 20px;
-  border:1px solid rgba(0,255,70,.35);
-  border-radius:18px;
-  background:rgba(0,10,4,.58);
-}
-
-.section-title{
-  text-align:center;
-  font:700 21px Orbitron;
-  color:#45ff78;
-  margin-bottom:20px;
-}
+.section{ margin:25px auto 35px; padding:26px 20px; border:1px solid rgba(0,255,70,.35); border-radius:18px; background:rgba(0,10,4,.58); }
+.section-title{ text-align:center; font:700 21px Orbitron; color:#45ff78; margin-bottom:20px; }
 
 /* SOCIAL */
-.social-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.social{
-  min-height:155px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(0,255,70,.35);
-  border-radius:16px;
-  background:#020704;
-  transition:.2s;
-}
-
-.social:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    0 0 12px #00ff55,
-    0 0 35px rgba(0,255,70,.3);
-}
-
-.icon{
-  width:66px;
-  height:66px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:32px;
-  margin-bottom:10px;
-  border:1px solid #39ff72;
-  color:#55ff7c;
-  box-shadow:0 0 10px rgba(0,255,70,.55);
-}
-
-.social span{
-  font-weight:bold;
-  color:#caffd3;
-}
-
-.social small{
-  color:#59ff7c;
-  margin-top:4px;
-}
+.social-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.social{ min-height:155px; display:flex; flex-direction:column; align-items:center; justify-content:center; border:1px solid rgba(0,255,70,.35); border-radius:16px; background:#020704; transition:.2s; }
+.social:hover{ transform:translateY(-4px); box-shadow: 0 0 12px #00ff55, 0 0 35px rgba(0,255,70,.3); }
+.icon{ width:66px; height:66px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; margin-bottom:10px; border:1px solid #39ff72; color:#55ff7c; box-shadow:0 0 10px rgba(0,255,70,.55); }
+.social span{ font-weight:bold; color:#caffd3; }
+.social small{ color:#59ff7c; margin-top:4px; }
 
 /* VIDEO / APK */
-.video-grid,
-.apk-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
-}
-
-.video-card,
-.apk-card,
-.bio-card,
-.text-card{
-  border:1px solid rgba(0,255,70,.35);
-  border-radius:15px;
-  background:#010502;
-  overflow:hidden;
-}
-
-.video-card iframe{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-}
-
+.video-grid, .apk-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+.video-card, .apk-card, .bio-card, .text-card{ border:1px solid rgba(0,255,70,.35); border-radius:15px; background:#010502; overflow:hidden; }
+.video-card iframe{ width:100%; aspect-ratio:16/9; border:0; }
 .video-title{padding:16px}
-.apk-card{padding:16px}
-.apk-card h3, .text-card h3{
-  font:700 18px Orbitron;
-  color:#43ff75;
-  margin-bottom:10px;
-}
+.apk-card{padding:16px; text-align: center;}
+.apk-card h3, .text-card h3{ font:700 18px Orbitron; color:#43ff75; margin-bottom:10px; }
+.apk-card p, .text-card p{ color:#caffd2; line-height:1.7; }
+.apk-card i{ font-size:42px; color:#55ff7c; margin-bottom: 12px; display: inline-block; }
 
-.apk-card p, .text-card p{
-  color:#caffd2;
-  line-height:1.7;
-}
-
-.apk-card i{
-  font-size:32px;
-  color:#55ff7c;
-  margin-bottom: 10px;
-}
+/* APK DETAILS GRID (NEW) */
+.apk-details-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 20px 0; text-align: left; }
+.apk-detail-box { background: #020704; border: 1px solid rgba(0,255,70,0.2); border-radius: 10px; padding: 12px; display: flex; align-items: center; gap: 12px; }
+.apk-detail-box i { font-size: 20px; color: #ff5555; width: 25px; text-align: center; }
+.apk-detail-text { display: flex; flex-direction: column; }
+.apk-detail-text small { color: #a9c9af; font-size: 11px; margin-bottom: 2px; }
+.apk-detail-text span { color: #fff; font-size: 13px; font-weight: bold; }
 
 /* BIO */
-.bio-card{
-  max-width:700px;
-  margin:auto;
-  padding:28px;
-  text-align:center;
-}
-
-.bio-logo{
-  width:115px;
-  height:115px;
-  border-radius:50%;
-  object-fit:contain;
-  filter:drop-shadow(0 0 15px #00ff55);
-  margin-bottom:16px;
-}
-
-.bio-name{
-  font:800 24px Orbitron;
-  color:#fff;
-  margin-bottom:15px;
-}
-
-.bio-row{
-  padding:10px;
-  border-bottom:1px solid rgba(0,255,70,.16);
-  line-height:1.5;
-}
-
+.bio-card{ max-width:700px; margin:auto; padding:28px; text-align:center; }
+.bio-logo{ width:115px; height:115px; border-radius:50%; object-fit:contain; filter:drop-shadow(0 0 15px #00ff55); margin-bottom:16px; }
+.bio-name{ font:800 24px Orbitron; color:#fff; margin-bottom:15px; }
+.bio-row{ padding:10px; border-bottom:1px solid rgba(0,255,70,.16); line-height:1.5; }
 .bio-row b{color:#55ff7c}
 
 /* FOOTER */
-footer{
-  border-top:1px solid rgba(0,255,70,.25);
-  padding:22px;
-  text-align:center;
-  color:#54ff7b;
-  font-size:13px;
-}
-
-.footer-social{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-top:10px;
-  font-size:20px;
-}
+footer{ border-top:1px solid rgba(0,255,70,.25); padding:22px; text-align:center; color:#54ff7b; font-size:13px; }
+.footer-social{ display:flex; justify-content:center; gap:16px; margin-top:10px; font-size:20px; }
 
 /* MOBILE NAV */
 .mobile-nav{display:none}
-
-.more-menu{
-  display:none;
-  position:fixed;
-  right:12px;
-  bottom:78px;
-  z-index:70;
-  width:190px;
-  padding:8px;
-  background:#041008;
-  border:1px solid #27ff69;
-  border-radius:15px;
-  box-shadow:0 0 20px rgba(0,255,70,.35);
-}
-
+.more-menu{ display:none; position:fixed; right:12px; bottom:78px; z-index:70; width:190px; padding:8px; background:#041008; border:1px solid #27ff69; border-radius:15px; box-shadow:0 0 20px rgba(0,255,70,.35); }
 .more-menu.show{display:block}
-
-.more-menu a{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:13px 12px;
-  border-radius:10px;
-  color:#baffc7;
-  font-size:13px;
-}
-
-.more-menu a:hover{
-  background:#09200e;
-  color:#39ff72;
-}
-
-.more-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:65;
-}
-
+.more-menu a{ display:flex; align-items:center; gap:10px; padding:13px 12px; border-radius:10px; color:#baffc7; font-size:13px; }
+.more-menu a:hover{ background:#09200e; color:#39ff72; }
+.more-overlay{ display:none; position:fixed; inset:0; z-index:65; }
 .more-overlay.show{display:block}
 
 /* MODALS */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:80;
-  background:rgba(0,0,0,.84);
-  align-items:center;
-  justify-content:center;
-  padding:14px;
-}
-
+.modal{ display:none; position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.84); align-items:center; justify-content:center; padding:14px; }
 .modal.show{display:flex}
-
-.modal-box{
-  width:min(780px,96%);
-  max-height:90vh;
-  overflow:auto;
-  background:#061008;
-  border:1px solid #35ff72;
-  border-radius:18px;
-  padding:20px;
-  box-shadow:0 0 35px rgba(0,255,70,.3);
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.modal-head h2{
-  font:700 21px Orbitron;
-  color:#45ff78;
-}
-
-.close{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:transparent;
-  color:#72ff91;
-  border:1px solid #35ff72;
-  cursor:pointer;
-}
-
-.tabs{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  margin-bottom:15px;
-}
-
-.tabs button,
-.item button{
-  padding:8px 10px;
-  border-radius:8px;
-  border:1px solid #2cff68;
-  background:#06170a;
-  color:#7dff91;
-  cursor:pointer;
-}
-
+.modal-box{ width:min(780px,96%); max-height:90vh; overflow:auto; background:#061008; border:1px solid #35ff72; border-radius:18px; padding:20px; box-shadow:0 0 35px rgba(0,255,70,.3); }
+.modal-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; }
+.modal-head h2{ font:700 21px Orbitron; color:#45ff78; }
+.close{ width:36px; height:36px; border-radius:50%; background:transparent; color:#72ff91; border:1px solid #35ff72; cursor:pointer; }
+.tabs{ display:flex; gap:7px; flex-wrap:wrap; margin-bottom:15px; }
+.tabs button, .item button{ padding:8px 10px; border-radius:8px; border:1px solid #2cff68; background:#06170a; color:#7dff91; cursor:pointer; }
 .admin-section{display:none}
 .admin-section.active{display:block}
-
-label{
-  display:block;
-  color:#91ffa8;
-  margin:9px 0 5px;
-}
-
-input,
-textarea,
-select{
-  width:100%;
-  padding:10px;
-  background:#010301;
-  color:#eaffea;
-  border:1px solid #1fff64;
-  border-radius:9px;
-}
-
-.list{
-  display:grid;
-  gap:9px;
-  margin-top:14px;
-}
-
-.item{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
-  border:1px solid rgba(0,255,70,.3);
-  padding:11px;
-  border-radius:10px;
-  background:#020704;
-}
-
-.item small{
-  color:#9fc8a8;
-  word-break:break-all;
-}
-
-.note{
-  font-size:12px;
-  line-height:1.5;
-  color:#a9c9af;
-  margin:9px 0 14px;
-}
+label{ display:block; color:#91ffa8; margin:9px 0 5px; }
+input, textarea, select{ width:100%; padding:10px; background:#010301; color:#eaffea; border:1px solid #1fff64; border-radius:9px; }
+.list{ display:grid; gap:9px; margin-top:14px; }
+.item{ display:flex; justify-content:space-between; gap:10px; align-items:center; border:1px solid rgba(0,255,70,.3); padding:11px; border-radius:10px; background:#020704; }
+.item small{ color:#9fc8a8; word-break:break-all; }
+.note{ font-size:12px; line-height:1.5; color:#a9c9af; margin:9px 0 14px; }
 
 /* MOBILE */
 @media(max-width:760px){
@@ -739,26 +157,21 @@ select{
   .hero h2{font-size:25px}
   .hero p{font-size:15px}
   .section{ padding:20px 12px; border-radius:15px; }
-  .social-grid,
-  .video-grid,
-  .apk-grid{ grid-template-columns:1fr; }
+  .social-grid, .video-grid, .apk-grid{ grid-template-columns:1fr; }
   .video-card iframe{min-height:200px}
+  .apk-details-grid { grid-template-columns:1fr; } /* Stack details on mobile */
   .mobile-nav{ position:fixed; display:grid; grid-template-columns:repeat(5,1fr); left:0; right:0; bottom:0; height:68px; z-index:60; background:rgba(2,7,4,.98); border-top:1px solid rgba(0,255,70,.35); box-shadow:0 -5px 25px rgba(0,0,0,.6); padding-bottom:env(safe-area-inset-bottom); }
-  .mobile-nav a,
-  .mobile-nav button{ border:0; background:transparent; color:#8aff9e; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:10px; cursor:pointer; }
+  .mobile-nav a, .mobile-nav button{ border:0; background:transparent; color:#8aff9e; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-size:10px; cursor:pointer; }
   .mobile-nav i{font-size:21px}
   .mobile-nav span{ font-size:10px; font-weight:bold; }
-  .mobile-nav a.active,
-  .mobile-nav button.active{ color:#fff; text-shadow: 0 0 7px #00ff55, 0 0 15px rgba(0,255,70,.7); }
-  .mobile-nav a.active i,
-  .mobile-nav button.active i{ color:#39ff72; }
+  .mobile-nav a.active, .mobile-nav button.active{ color:#fff; text-shadow: 0 0 7px #00ff55, 0 0 15px rgba(0,255,70,.7); }
+  .mobile-nav a.active i, .mobile-nav button.active i{ color:#39ff72; }
   footer{margin-bottom:0}
   .modal-box{ width:96%; max-height:88vh; padding:16px; }
   .item{ flex-direction:column; align-items:flex-start; }
   .item > div:last-child{width:100%}
   .item button{margin-top:4px}
 }
-
 @media(max-width:380px){
   .mobile-nav{height:64px}
   .mobile-nav i{font-size:18px}
@@ -784,13 +197,8 @@ select{
     </div>
     <img id="adminLogo" class="logo" src="logo.png" alt="Hexca Web Logo">
     <h1>WELCOME TO HEXCA WEB</h1>
-    <div class="welcome">
-      SECURE CONNECTION • COMMUNITY PORTAL
-    </div>
-    <div class="countdown">
-      Opening community in
-      <b id="counter">5</b>
-    </div>
+    <div class="welcome"> SECURE CONNECTION • COMMUNITY PORTAL </div>
+    <div class="countdown"> Opening community in <b id="counter">5</b> </div>
   </div>
 </section>
 
@@ -821,13 +229,8 @@ select{
     <img id="homeAdminLogo" class="center-logo" src="logo.png" alt="Hexca Web Logo" title="Hexca Web">
     <div class="hero">
       <h2>Welcome to Hexca Web</h2>
-      <p>
-        Join our community for tutorials, useful updates, apps and community news.
-      </p>
-      <div class="modified">
-        MODIFIED BY:—<br>
-        <strong>SAMIM AKTAR (SSK)</strong>
-      </div>
+      <p> Join our community for tutorials, useful updates, apps and community news. </p>
+      <div class="modified"> MODIFIED BY:—<br> <strong>SAMIM AKTAR (SSK)</strong> </div>
       <ul class="checks">
         <li>Completely safe and free!</li>
         <li>Share with your friends!</li>
@@ -845,24 +248,17 @@ select{
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input type="text" id="globalSearch" class="search-input" placeholder="Search APKs, Videos, Social links..." oninput="handleSearch(this.value)">
       </div>
-      <!-- SEARCH RESULTS CONTAINER -->
       <div id="searchResults" class="search-results"></div>
-
     </div>
 
     <section class="section">
-      <div class="section-title">
-        MY YOUTUBE VIDEOS
-      </div>
+      <div class="section-title"> MY YOUTUBE VIDEOS </div>
       <div id="videos" class="video-grid"></div>
-      <p id="noVideos" class="note" style="text-align:center">
-        Add your YouTube videos from Admin Panel.
-      </p>
+      <p id="noVideos" class="note" style="text-align:center"> Add your YouTube videos from Admin Panel. </p>
     </section>
 
   </div>
 </section>
-
 
 <!-- SOCIAL -->
 <section id="page-social" class="page">
@@ -876,7 +272,6 @@ select{
   </div>
 </section>
 
-
 <!-- APK -->
 <section id="page-apk" class="page">
   <div class="container">
@@ -889,7 +284,6 @@ select{
   </div>
 </section>
 
-
 <!-- ABOUT -->
 <section id="page-about" class="page">
   <div class="container">
@@ -898,15 +292,11 @@ select{
     <section class="section">
       <div class="text-card">
         <h3>HEXCA WEB COMMUNITY</h3>
-        <p>
-          Welcome to Hexca Web. This website provides tutorials, educational information, community updates and useful resources.
-          Use information responsibly and respect applicable laws and platform rules.
-        </p>
+        <p> Welcome to Hexca Web. This website provides tutorials, educational information, community updates and useful resources. Use information responsibly and respect applicable laws and platform rules. </p>
       </div>
     </section>
   </div>
 </section>
-
 
 <!-- PRIVACY -->
 <section id="page-privacy" class="page">
@@ -916,28 +306,20 @@ select{
     <section class="section">
       <div class="text-card">
         <h3>PRIVACY</h3>
-        <p>
-          This website uses Firebase to store community content such as social links, APK links, videos and bio information.
-          Do not submit passwords or sensitive personal information through public forms.
-        </p>
+        <p> This website uses Firebase to store community content such as social links, APK links, videos and bio information. Do not submit passwords or sensitive personal information through public forms. </p>
         <br>
         <h3>DISCLAIMER</h3>
-        <p>
-          Content is educational and informational. We do not encourage illegal activity, unauthorized access, malware, or abuse of any service.
-        </p>
+        <p> Content is educational and informational. We do not encourage illegal activity, unauthorized access, malware, or abuse of any service. </p>
       </div>
     </section>
-
-    <!-- PRIVATE CODE BUTTON -->
+    
     <div style="text-align: center; margin-top: 20px;">
       <button class="btn" onclick="openPrivatePrompt()">
         <i class="fa-solid fa-lock"></i> Private Code / Files
       </button>
     </div>
-
   </div>
 </section>
-
 
 <!-- BIO -->
 <section id="page-bio" class="page">
@@ -957,14 +339,11 @@ select{
 
 </main>
 
-
 <footer>
   © 2026 Hexca Web • All Rights Reserved.
-  
   <div style="margin-top: 10px; font-family: 'Share Tech Mono', monospace; font-size: 14px; color: #7dff9a;">
     <i class="fa-solid fa-eye"></i> TOTAL VISITS: <span id="visitCount" style="color: #fff; font-weight: bold;">Loading...</span>
   </div>
-
   <div class="footer-social">
     <a href="https://youtube.com/@hexcaweb2.0?si=tHbdOGQ5LYpWYvtn" target="_blank" rel="noopener"> <i class="fa-brands fa-youtube"></i> </a>
     <a href="https://t.me/hexcaweb" target="_blank" rel="noopener"> <i class="fa-brands fa-telegram"></i> </a>
@@ -974,7 +353,6 @@ select{
 
 </div>
 
-
 <!-- MOBILE NAV -->
 <nav class="mobile-nav">
   <a href="#home" data-page="home" class="mobile-link"> <i class="fa-solid fa-house"></i> <span>HOME</span> </a>
@@ -983,14 +361,11 @@ select{
   <a href="#bio" data-page="bio" class="mobile-link"> <i class="fa-solid fa-id-card"></i> <span>MY BIO</span> </a>
   <button id="moreButton" type="button"> <i class="fa-solid fa-ellipsis"></i> <span>MORE</span> </button>
 </nav>
-
 <div id="moreOverlay" class="more-overlay"></div>
-
 <div id="moreMenu" class="more-menu">
   <a href="#about" data-page="about"> <i class="fa-solid fa-circle-info"></i> ABOUT </a>
   <a href="#privacy" data-page="privacy"> <i class="fa-solid fa-shield-halved"></i> PRIVACY </a>
 </div>
-
 
 <!-- BIO MODAL -->
 <div id="bioModal" class="modal">
@@ -1011,12 +386,16 @@ select{
 <div id="apkPreviewModal" class="modal">
   <div class="modal-box" style="text-align: center;">
     <div class="modal-head">
-      <h2 id="apkPreviewTitle">APK DOWNLOAD</h2>
+      <h2 id="apkPreviewTitle">APK DETAILS</h2>
       <button class="close" onclick="closeApkPreview()">×</button>
     </div>
-    <i id="apkPreviewIcon" class="fa-solid fa-box-open" style="font-size: 48px; color: #55ff7c; margin-bottom: 15px;"></i>
-    <p id="apkPreviewDesc" class="note" style="font-size: 15px; margin-bottom: 20px;"></p>
     
+    <div id="apkPreviewIconContainer"></div>
+    <p id="apkPreviewDesc" class="note" style="font-size: 15px; margin-bottom: 5px;"></p>
+    
+    <!-- Custom APK Details Grid -->
+    <div id="apkPreviewGrid" class="apk-details-grid"></div>
+
     <div id="apkVideoContainer" style="display: none; margin-bottom: 20px;">
         <h4 style="color:#45ff78; margin-bottom: 10px; font-family: Orbitron;">HOW TO DOWNLOAD THIS LINK</h4>
         <iframe id="apkPreviewVideo" width="100%" height="250" style="border:1px solid rgba(0,255,70,.35); border-radius:10px;" src="" allowfullscreen></iframe>
@@ -1045,7 +424,6 @@ select{
   </div>
 </div>
 
-
 <!-- 2-STEP PRIVATE CODE MODALS -->
 <div id="privatePasswordModal" class="modal">
   <div class="modal-box" style="max-width: 400px; text-align: center;">
@@ -1059,7 +437,6 @@ select{
     <p id="privatePassError" class="note" style="color: #ff5555; margin-top: 10px;"></p>
   </div>
 </div>
-
 <div id="privateFilesModal" class="modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -1070,7 +447,6 @@ select{
     <div id="privateFilesList" class="list" style="margin-top: 15px;"></div>
   </div>
 </div>
-
 <div id="filePasswordModal" class="modal">
   <div class="modal-box" style="max-width: 400px; text-align: center;">
     <div class="modal-head">
@@ -1083,7 +459,6 @@ select{
     <p id="filePassError" class="note" style="color: #ff5555; margin-top: 10px;"></p>
   </div>
 </div>
-
 <div id="fileContentModal" class="modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -1094,7 +469,6 @@ select{
     <button class="btn" onclick="copyFileCode()" style="margin-top: 10px;"><i class="fa-solid fa-copy"></i> Copy Code</button>
   </div>
 </div>
-
 
 <!-- ADMIN PANEL -->
 <div id="adminModal" class="modal">
@@ -1134,10 +508,20 @@ select{
     <div id="aA" class="admin-section">
       <input id="ai" type="hidden">
       <label>APK name</label> <input id="an">
-      <label>Link</label> <input id="au">
-      <label>Icon (FontAwesome Class)</label> <input id="ax" placeholder="fa-brands fa-android">
+      <label>Download Link</label> <input id="au">
+      <label>Icon (FontAwesome Class OR Direct Image Link)</label> <input id="ax" placeholder="fa-brands fa-android OR https://link.to/image.png">
+      
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div><label>Version</label> <input id="a_ver" placeholder="e.g. v9.83.0"></div>
+          <div><label>Size</label> <input id="a_size" placeholder="e.g. 68 MB"></div>
+          <div><label>Category</label> <input id="a_cat" placeholder="e.g. Entertainment"></div>
+          <div><label>Publisher</label> <input id="a_pub" placeholder="e.g. Netflix, Inc."></div>
+          <div><label>Requirements</label> <input id="a_req" placeholder="e.g. Android 5.1+"></div>
+          <div><label>Price</label> <input id="a_price" placeholder="e.g. Free"></div>
+      </div>
+
       <label>How to Download Video (YouTube ID)</label> <input id="ay" placeholder="e.g. dQw4w9WgXcQ (leave blank if none)">
-      <label>Description</label> <textarea id="ad" rows="3"></textarea>
+      <label>Description / Mod Info</label> <textarea id="ad" rows="3"></textarea>
       <button class="btn" onclick="saveApk()"> SAVE APK </button>
       <div id="al" class="list"></div>
     </div>
@@ -1177,10 +561,6 @@ select{
     <button class="btn" onclick="logoutAdmin()"> LOGOUT </button>
   </div>
 </div>
-
-<!-- =========================================================
-     FIREBASE + WEBSITE SCRIPT
-========================================================= -->
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
@@ -1233,8 +613,11 @@ function render(){
   if(d.apk.length){
     $("apkGrid").innerHTML = d.apk.map(x => {
       const url = safeUrl(x.url); if(!url) return "";
-      const icon = x.icon ? x.icon : "fa-solid fa-box-open";
-      return `<div class="apk-card"><i class="${esc(icon)}"></i><h3>${esc(x.name)}</h3><p>${esc(x.desc || "App link")}</p><button class="btn" onclick="openApkPreview('${esc(x.id)}')"><i class="fa-solid fa-link"></i> Download Options</button></div>`;
+      let iconHtml = `<i class="${esc(x.icon || 'fa-solid fa-box-open')}"></i>`;
+      if(x.icon && (x.icon.startsWith('http') || x.icon.includes('/'))) {
+          iconHtml = `<img src="${esc(x.icon)}" style="width:50px; height:50px; border-radius:10px; margin-bottom:12px; object-fit:cover;">`;
+      }
+      return `<div class="apk-card">${iconHtml}<h3>${esc(x.name)}</h3><button class="btn" onclick="openApkPreview('${esc(x.id)}')"><i class="fa-solid fa-circle-info"></i> View Details</button></div>`;
     }).join("");
   }else{
     $("apkGrid").innerHTML = '<p class="note">No APK links added yet.</p>';
@@ -1281,14 +664,25 @@ window.saveApk = async function(){
   if(!isAdmin()){ alert("Admin login required."); return; }
   const id = $("ai").value.trim(); const name = $("an").value.trim(); const url = safeUrl($("au").value); const desc = $("ad").value.trim();
   const icon = $("ax").value.trim(); const ytid = $("ay").value.trim();
+  const version = $("a_ver").value.trim(); const size = $("a_size").value.trim(); const cat = $("a_cat").value.trim(); 
+  const pub = $("a_pub").value.trim(); const req = $("a_req").value.trim(); const price = $("a_price").value.trim();
+
   if(!name || !url){ alert("Name and valid link required."); return; }
   try{
-    const data = { name, url, desc, icon, ytid, updatedAt:Date.now() };
+    const data = { name, url, desc, icon, ytid, version, size, cat, pub, req, price, updatedAt:Date.now() };
     if(id){ await setDoc(doc(db,"apk",id), data, {merge:true}); }else{ await addDoc(collection(db,"apk"), data); }
-    $("ai").value=""; $("an").value=""; $("au").value=""; $("ad").value=""; $("ax").value=""; $("ay").value=""; alert("APK saved.");
+    $("ai").value=""; $("an").value=""; $("au").value=""; $("ad").value=""; $("ax").value=""; $("ay").value="";
+    $("a_ver").value=""; $("a_size").value=""; $("a_cat").value=""; $("a_pub").value=""; $("a_req").value=""; $("a_price").value="";
+    alert("APK saved.");
   }catch(e){ console.error(e); alert("Save failed: " + e.message); }
 };
-window.editApk = function(id){ const x = appData.apk.find(item => item.id === id); if(!x) return; $("ai").value=id; $("an").value=x.name; $("au").value=x.url; $("ad").value=x.desc || ""; $("ax").value=x.icon || ""; $("ay").value=x.ytid || ""; };
+window.editApk = function(id){ 
+  const x = appData.apk.find(item => item.id === id); if(!x) return; 
+  $("ai").value=id; $("an").value=x.name; $("au").value=x.url; $("ad").value=x.desc || ""; 
+  $("ax").value=x.icon || ""; $("ay").value=x.ytid || "";
+  $("a_ver").value=x.version || ""; $("a_size").value=x.size || ""; $("a_cat").value=x.cat || ""; 
+  $("a_pub").value=x.pub || ""; $("a_req").value=x.req || ""; $("a_price").value=x.price || ""; 
+};
 
 window.saveVideo = async function(){
   if(!isAdmin()){ alert("Admin login required."); return; }
@@ -1374,7 +768,23 @@ window.openApkPreview = function(id){
   $("apkPreviewTitle").textContent = x.name;
   $("apkPreviewDesc").textContent = x.desc || "Ready to download.";
   $("apkPreviewBtn").href = safeUrl(x.url) || "#";
-  $("apkPreviewIcon").className = x.icon ? x.icon : "fa-solid fa-box-open";
+  
+  if(x.icon && (x.icon.startsWith('http') || x.icon.includes('/'))){
+      $("apkPreviewIconContainer").innerHTML = `<img src="${esc(x.icon)}" style="width:80px; height:80px; border-radius:18px; margin-bottom:15px; object-fit:cover; box-shadow: 0 0 15px rgba(0,255,70,0.4);">`;
+  } else {
+      $("apkPreviewIconContainer").innerHTML = `<i class="${esc(x.icon || 'fa-solid fa-box-open')}" style="font-size: 60px; color: #55ff7c; margin-bottom: 15px; display:inline-block; filter:drop-shadow(0 0 10px rgba(0,255,70,0.5));"></i>`;
+  }
+
+  // Generate Details Grid
+  $("apkPreviewGrid").innerHTML = `
+      <div class="apk-detail-box"><i class="fa-solid fa-mobile-screen"></i><div class="apk-detail-text"><small>App Name</small><span>${esc(x.name)}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-code"></i><div class="apk-detail-text"><small>Version</small><span>${esc(x.version || 'Latest')}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-building"></i><div class="apk-detail-text"><small>Publisher</small><span>${esc(x.pub || 'Unknown')}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-gears"></i><div class="apk-detail-text"><small>Requirements</small><span>${esc(x.req || 'Android 5.0+')}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-shapes"></i><div class="apk-detail-text"><small>Category</small><span>${esc(x.cat || 'App')}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-database"></i><div class="apk-detail-text"><small>Size</small><span>${esc(x.size || 'Varies')}</span></div></div>
+      <div class="apk-detail-box"><i class="fa-solid fa-tag"></i><div class="apk-detail-text"><small>Price</small><span>${esc(x.price || 'Free')}</span></div></div>
+  `;
 
   if (x.ytid && x.ytid.trim() !== "") {
     $("apkVideoContainer").style.display = "block";
